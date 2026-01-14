@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Playfair Display";
+  src: url("./assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf");
+}
+
 :root {
   --main-bg-color: #0c0b08;
   --secondary-bg-color: #191919;
@@ -14,10 +19,10 @@
 * {
   padding: 0;
   margin: 0;
-  transition: all 0.2s;
 }
 
 body {
+  font-family: "Playfair Display";
   font-size: 1.5rem;
   line-height: 1.5;
   background-color: var(--main-bg-color);
