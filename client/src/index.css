@@ -45,7 +45,7 @@ body {
   display: flex;
 }
 
-.flex {
+.flex-gap-50 {
   gap: 50px;
 }
 
@@ -67,6 +67,30 @@ body {
   max-width: 36rem;
 }
 
+.hero {
+  position: relative;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  z-index: -1;
+  background-color: var(--secondary-color);
+}
+
+.hero::before {
+  left: -20px;
+  bottom: -20px;
+}
+
+.hero::after {
+  right: 0px;
+  top: -20px;
+}
+
 .info {
   font-size: 1.15rem;
   color: var(--info-text-color);
@@ -80,6 +104,13 @@ body {
   text-decoration: none;
   padding: 1rem 1.5rem;
   max-width: max-content;
+}
+
+.link-credits {
+  font-size: 1rem;
+  color: var(--main-bg-color);
+  text-decoration: none;
+  writing-mode: vertical-rl;
 }
 
 h1,
