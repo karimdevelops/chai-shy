@@ -1,0 +1,25 @@
+:root {
+  --main-bg-color: #0c0b08;
+  --secondary-bg-color: #191919;
+  --secondary-book-bg-color: #0c0c0c;
+  --secondary-color: #dcca87;
+
+  --border-color: #26231c;
+  --uplift-color: #000000;
+
+  --main-text-color: #f5f5f5;
+  --info-text-color: #a4a3a3;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  transition: all 0.2s;
+}
+
+body {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+}
