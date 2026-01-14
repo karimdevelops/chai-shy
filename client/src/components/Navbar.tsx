@@ -1,28 +1,29 @@
+import { Link } from "@tanstack/react-router";
 import "../styles/Navbar.css";
 
 export default function Navbar() {
   return (
     <nav>
       <ul className="navbar flex flex-gap-20">
-        <a className="active" href="/">
+        <Link to="/">
           <li className="logo">
             <button id="homeBtn">Chai Shy</button>
           </li>
-        </a>
+        </Link>
         <li>
-          <a href="/menu">
+          <Link to="/menu">
             <button id="menuBtn">Menu</button>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/about">
+          <Link to="/about">
             <button id="aboutBtn">About</button>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/book">
+          <Link to="/book">
             <button id="bookBtn">Book a table</button>
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
