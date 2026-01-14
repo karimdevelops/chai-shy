@@ -45,6 +45,10 @@ body {
   display: flex;
 }
 
+.flex-gap-20 {
+  gap: 20px;
+}
+
 .flex-gap-50 {
   gap: 50px;
 }
