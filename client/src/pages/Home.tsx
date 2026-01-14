@@ -13,10 +13,12 @@ export default function Home() {
           where you can get the desi tea for less than $5, even though the taste
           is worth a million times more! <i>slurps...</i>
         </p>
-        <a href="">Explore Menu</a>
+        <a className="link-button" href="">
+          Explore Menu
+        </a>
       </div>
       <div className="flex flex-column hero">
-        <img width="auto" height="600px" src="./hero.avif" alt="Tea cups" />
+        <img width="auto" height="550px" src="./hero.avif" alt="Tea cups" />
       </div>
     </div>
   );

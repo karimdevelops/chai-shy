@@ -67,11 +67,19 @@ body {
   max-width: 36rem;
 }
 
-.hero {}
-
 .info {
   font-size: 1.15rem;
   color: var(--info-text-color);
+}
+
+.link-button {
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  background-color: var(--secondary-color);
+  color: var(--main-bg-color);
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  max-width: max-content;
 }
 
 h1,
