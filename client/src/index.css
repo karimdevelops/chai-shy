@@ -3,6 +3,16 @@
   src: url("./assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf");
 }
 
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/Inter/Inter-VariableFont_opsz\,wght.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
 :root {
   --main-bg-color: #0c0b08;
   --secondary-bg-color: #191919;
@@ -22,9 +32,54 @@
 }
 
 body {
-  font-family: "Playfair Display";
+  font-family: "Inter";
   font-size: 1.5rem;
   line-height: 1.5;
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
+}
+
+.flex,
+.flex-column,
+.flex-center {
+  display: flex;
+}
+
+.flex {
+  gap: 50px;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  min-height: 90vh;
+  padding: 1rem;
+}
+
+.intro {
+  max-width: 36rem;
+}
+
+.hero {}
+
+.info {
+  font-size: 1.15rem;
+  color: var(--info-text-color);
+}
+
+h1,
+h5 {
+  font-family: "Playfair Display", serif;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: var(--secondary-color);
 }
