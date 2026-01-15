@@ -1,0 +1,47 @@
+.add-form {
+    background-color: var(--secondary-bg-color);
+    padding: 2rem 1rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 5px var(--uplift-color);
+    position: absolute;
+}
+
+input,
+textarea {
+    font-size: 1.15rem;
+    color: #fff;
+    background-color: transparent;
+    padding: 0.25rem 0.75rem;
+    border: none;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+textarea {
+    min-height: 10vh;
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+    outline: none;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.img-upload-label {
+    font-size: 1rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+
+.button-submit {
+    font-size: 1.25rem;
+    color: var(--secondary-color);
+    background-color: var(--secondary-bg-color);
+    border: 2px solid var(--secondary-color);
+    padding: 0.25rem 1rem;
+}
