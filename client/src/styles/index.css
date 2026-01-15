@@ -66,6 +66,18 @@ body {
   min-height: 70vh;
 }
 
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+}
+
+.card {
+  background-color: red;
+  border-radius: 20px;
+  box-shadow: 0 5px 5px var(--uplift-color);
+}
+
 .main {
   min-height: 70vh;
   padding: 3rem;

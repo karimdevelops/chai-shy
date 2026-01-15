@@ -7,6 +7,21 @@
     border-radius: 20px;
 }
 
+.menubar {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 40px;
+    padding: 2rem 0;
+}
+
+.navbar-menu {
+    font-size: 1.15rem;
+}
+
+.nav-li {
+    list-style-type: none;
+}
+
 .navbar button {
     font-family: Montserrat, Arial, Helvetica, sans-serif;
     font-size: 1rem;
