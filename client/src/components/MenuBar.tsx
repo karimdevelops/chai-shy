@@ -12,8 +12,13 @@ export default function MenuBar() {
           {menuCat.length != 0
             ? menuCat.map((cat) => (
                 <li key={cat["id"]} className="nav-li">
-                  <Link to={`/menu/${cat["name"]}`.toLowerCase()}>
-                    <button id="menuBtn">{cat["name"]}</button>
+                  <Link
+                    to={"/menu/$cat"}
+                    params={{ cat: `${cat["name"]}`.toLowerCase() }}
+                    activeProps={{ className: "link-active" }}
+                    className="link-menu"
+                  >
+                    {cat["name"]}
                   </Link>
                 </li>
               ))

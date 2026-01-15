@@ -5,24 +5,38 @@ export default function Navbar() {
   return (
     <nav>
       <ul className="navbar flex flex-gap-20">
-        <Link to="/">
-          <li className="logo">
-            <button id="homeBtn">Chai Shy</button>
-          </li>
+        <Link
+          to="/"
+          activeProps={{ className: "link-active" }}
+          className="link-nav"
+        >
+          <li className="logo">Chai Shy</li>
         </Link>
         <li>
-          <Link to="/menu">
-            <button id="menuBtn">Menu</button>
+          <Link
+            to="/menu"
+            activeProps={{ className: "link-active" }}
+            className="link-nav"
+          >
+            Menu
           </Link>
         </li>
         <li>
-          <Link to="/about">
-            <button id="aboutBtn">About</button>
+          <Link
+            to="/about"
+            activeProps={{ className: "link-active" }}
+            className="link-nav"
+          >
+            About
           </Link>
         </li>
         <li>
-          <Link to="/book">
-            <button id="bookBtn">Book a table</button>
+          <Link
+            to="/book"
+            activeProps={{ className: "link-active" }}
+            className="link-nav"
+          >
+            Book a table
           </Link>
         </li>
       </ul>

@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MenuCatRouteImport } from './routes/menu.$cat'
 
 const MenuRoute = MenuRouteImport.update({
   id: '/menu',
@@ -28,35 +29,43 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MenuCatRoute = MenuCatRouteImport.update({
+  id: '/$cat',
+  path: '/$cat',
+  getParentRoute: () => MenuRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
-  '/menu': typeof MenuRoute
+  '/menu': typeof MenuRouteWithChildren
+  '/menu/$cat': typeof MenuCatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
-  '/menu': typeof MenuRoute
+  '/menu': typeof MenuRouteWithChildren
+  '/menu/$cat': typeof MenuCatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
-  '/menu': typeof MenuRoute
+  '/menu': typeof MenuRouteWithChildren
+  '/menu/$cat': typeof MenuCatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/menu'
+  fullPaths: '/' | '/admin' | '/menu' | '/menu/$cat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/menu'
-  id: '__root__' | '/' | '/admin' | '/menu'
+  to: '/' | '/admin' | '/menu' | '/menu/$cat'
+  id: '__root__' | '/' | '/admin' | '/menu' | '/menu/$cat'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRoute
-  MenuRoute: typeof MenuRoute
+  MenuRoute: typeof MenuRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -82,13 +91,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/menu/$cat': {
+      id: '/menu/$cat'
+      path: '/$cat'
+      fullPath: '/menu/$cat'
+      preLoaderRoute: typeof MenuCatRouteImport
+      parentRoute: typeof MenuRoute
+    }
   }
 }
+
+interface MenuRouteChildren {
+  MenuCatRoute: typeof MenuCatRoute
+}
+
+const MenuRouteChildren: MenuRouteChildren = {
+  MenuCatRoute: MenuCatRoute,
+}
+
+const MenuRouteWithChildren = MenuRoute._addFileChildren(MenuRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRoute,
-  MenuRoute: MenuRoute,
+  MenuRoute: MenuRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

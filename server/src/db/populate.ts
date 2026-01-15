@@ -9,11 +9,11 @@ CREATE TABLE IF NOT EXISTS menu_category (
 
 INSERT INTO menu_category (name)
 VALUES
-    ('Chai Drinks'),
-    ('Street Food'),
-    ('Mazza Wraps'),
-    ('Kiddies Meal'),
-    ('Ice Cream');
+    ('Drinks'),
+    ('Special'),
+    ('Wraps'),
+    ('Kids'),
+    ('Sweets');
 
 CREATE TABLE IF NOT EXISTS menu (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
