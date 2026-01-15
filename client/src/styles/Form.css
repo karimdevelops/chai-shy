@@ -19,7 +19,9 @@ select {
 }
 
 textarea {
+    font-size: 1rem;
     min-height: 10vh;
+    min-width: 80%;
     border: 1px solid var(--secondary-color);
     border-radius: 8px;
 }
