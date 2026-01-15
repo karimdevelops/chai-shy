@@ -4,10 +4,12 @@
     border-radius: 20px;
     box-shadow: 0 5px 5px var(--uplift-color);
     position: absolute;
+    top: 1%;
 }
 
 input,
-textarea {
+textarea,
+select {
     font-size: 1.15rem;
     color: #fff;
     background-color: transparent;

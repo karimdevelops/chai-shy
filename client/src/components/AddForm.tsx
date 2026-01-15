@@ -1,6 +1,8 @@
+import useMenuCat from "../hooks/useMenuCat";
 import "../styles/Form.css";
 
 export default function AddForm() {
+  const menuCat = useMenuCat();
   return (
     <form
       action="/api/admin/add"
@@ -10,6 +12,13 @@ export default function AddForm() {
     >
       <input type="text" name="name" placeholder="Product Name" />
       <input type="number" name="price" placeholder="Product Price" />
+      <select name="menu_category">
+        {menuCat.length != 0
+          ? menuCat.map((cat) => {
+              return <option value={cat["id"]}>{cat["name"]}</option>;
+            })
+          : null}
+      </select>
       <textarea name="description" placeholder="Product Description" />
       <label htmlFor="img-upload" className="img-upload-label">
         Upload Image
