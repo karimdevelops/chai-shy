@@ -18,6 +18,7 @@ export default function AddForm() {
         type="file"
         name="img"
         id="img-upload"
+        accept=".avif"
         placeholder="Upload Image"
       />
       <button className="button-submit">Add</button>

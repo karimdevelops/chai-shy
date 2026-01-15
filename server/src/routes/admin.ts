@@ -6,7 +6,7 @@ const storage = multer.diskStorage({
         cb(null, "./uploads")
     },
     filename: (req, file, cb) => {
-        cb(null, req.body.name + ".avif");
+        cb(null, Date.now() + req.body.name + ".avif");
     }
 })
 const upload = multer({ storage: storage })
