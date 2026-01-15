@@ -13,13 +13,6 @@ export default function Admin() {
 
   return (
     <div className="mheight-70 flex flex-center flex-gap-50">
-      <button
-        className="button-work flex flex-column flex-center flex-gap-20"
-        onClick={toggleForm}
-      >
-        <img src="./icons/add.svg" alt="Add food" />
-        <div>Add Food</div>
-      </button>
       <button className="button-work flex flex-column flex-center flex-gap-20">
         <img src="./icons/approve.svg" alt="Verify" />
         <div>Aprove Staff</div>
@@ -31,6 +24,17 @@ export default function Admin() {
         <img src="./icons/support.svg" alt="Support" />
         <div>Support Chat</div>
       </Link>
+      <button className="button-work flex flex-column flex-center flex-gap-20">
+        <img src="./icons/approve.svg" alt="Verify" />
+        <div>Order History</div>
+      </button>
+      <button
+        className="button-work flex flex-column flex-center flex-gap-20"
+        onClick={toggleForm}
+      >
+        <img src="./icons/add.svg" alt="Add food" />
+        <div>Add Food</div>
+      </button>
 
       {isForm ? <AddForm /> : null}
     </div>
