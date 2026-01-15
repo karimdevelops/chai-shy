@@ -1,4 +1,4 @@
-import { Outlet, createRootRoute } from "@tanstack/react-router";
+import { Outlet, createRootRoute, useLocation } from "@tanstack/react-router";
 import Navbar from "../components/Navbar";
 
 export const Route = createRootRoute({
@@ -6,10 +6,12 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
+  const location = useLocation();
+
   return (
     <>
       <div className="main">
-        <Navbar />
+        {location.pathname !== "/admin" ? <Navbar /> : null}
         <Outlet />
       </div>
     </>

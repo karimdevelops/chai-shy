@@ -1,16 +1,16 @@
 @font-face {
   font-family: "Playfair Display";
-  src: url("./assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf");
+  src: url("../assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf");
 }
 
 @font-face {
   font-family: "Inter";
-  src: url("./assets/fonts/Inter/Inter-VariableFont_opsz\,wght.ttf");
+  src: url("../assets/fonts/Inter/Inter-VariableFont_opsz\,wght.ttf");
 }
 
 @font-face {
   font-family: "Montserrat";
-  src: url("./assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+  src: url("../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
 }
 
 :root {
@@ -62,9 +62,13 @@ body {
   align-items: center;
 }
 
+.mheight-70 {
+  min-height: 70vh;
+}
+
 .main {
-  min-height: 90vh;
-  padding: 1rem;
+  min-height: 70vh;
+  padding: 3rem;
 }
 
 .intro {
