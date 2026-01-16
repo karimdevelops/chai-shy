@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS menu (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     category_id INTEGER REFERENCES menu_category (id),
     name VARCHAR(50),
+    price INTEGER,
     imageLocation VARCHAR(255),
     description VARCHAR(255)
 );
