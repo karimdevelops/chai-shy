@@ -4,15 +4,14 @@ export async function addMenu(
     cat_id: number,
     name: string,
     price: number,
-    imageLoc: string,
     desc: string
 ) {
     const { rows } = await pool.query(`
         INSERT INTO 
-        menu (category_id, name, price, imageLocation, description)
-        VALUES ($1, $2, $3, $4, $5)
+        menu (category_id, name, price, description)
+        VALUES ($1, $2, $3, $4)
         ;
-    `, [cat_id, name, price, imageLoc, desc]);
+    `, [cat_id, name, price, desc]);
     return rows;
 }
 

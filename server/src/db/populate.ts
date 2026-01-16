@@ -20,7 +20,6 @@ CREATE TABLE IF NOT EXISTS menu (
     category_id INTEGER REFERENCES menu_category (id),
     name VARCHAR(50),
     price DECIMAL,
-    imageLocation VARCHAR(255),
     description VARCHAR(255)
 );
 `
