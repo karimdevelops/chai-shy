@@ -13,14 +13,20 @@ export default function Menu() {
   }, [routerState.location.pathname, setMenu]);
 
   return (
-    <div className="menubar">
+    <div className="menu-div">
       <MenuBar />
       <div className="cards">
         {menu != null
           ? menu.map((x) => (
               <div className="card flex flex-column flex-center" key={x.id}>
-                <h4>{x.name}</h4>
-                <p>{x.price}</p>
+                <img
+                  src={`/api/uploads/${x.name.toLowerCase()}.avif`}
+                  alt=""
+                  height={165}
+                  width={"auto"}
+                />
+                <p className="product-name">{x.name}</p>
+                <p className="product-price">${x.price}</p>
               </div>
             ))
           : null}
