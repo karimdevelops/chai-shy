@@ -1,5 +1,4 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router";
-import Menu from "../pages/Menu";
 
 export const Route = createFileRoute("/menu")({
   component: MenuComponent,
@@ -8,7 +7,6 @@ export const Route = createFileRoute("/menu")({
 function MenuComponent() {
   return (
     <>
-      <Menu />
       <Outlet />
     </>
   );

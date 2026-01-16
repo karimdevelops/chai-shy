@@ -5,6 +5,10 @@ import "../styles/Navbar.css";
 export default function MenuBar() {
   const menuCat = useMenuCat();
 
+  function activeLink(id: number) {
+    return { className: "link-active" };
+  }
+
   return (
     <div className="menubar">
       <nav className="navbar navbar-menu">
@@ -15,7 +19,7 @@ export default function MenuBar() {
                   <Link
                     to={"/menu/$cat"}
                     params={{ cat: `${cat["name"]}`.toLowerCase() }}
-                    activeProps={{ className: "link-active" }}
+                    activeProps={() => activeLink(cat["id"])}
                     className="link-menu"
                   >
                     {cat["name"]}
@@ -25,11 +29,6 @@ export default function MenuBar() {
             : null}
         </ul>
       </nav>
-      <div className="cards">
-        <div className="card">
-          <img src="/api/uploads" alt="" />
-        </div>
-      </div>
     </div>
   );
 }

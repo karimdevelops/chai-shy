@@ -12,7 +12,7 @@ export default function AddForm() {
     >
       <input type="text" name="name" placeholder="Product Name" />
       <input type="number" name="price" placeholder="Product Price" />
-      <textarea name="description" placeholder="Product Description" />
+      <textarea name="desc" placeholder="Product Description" />
       <div className="flex flex-gap-20">
         <select name="menu_category">
           {menuCat.length != 0

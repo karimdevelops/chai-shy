@@ -1,9 +1,10 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
+import Menu from "../pages/Menu";
 
-export const Route = createFileRoute('/menu/$cat')({
-  component: RouteComponent,
-})
+export const Route = createFileRoute("/menu/$cat")({
+  component: MenuCatComponent,
+});
 
-function RouteComponent() {
-  return <div>Hello "/menu/$catgory"!</div>
+function MenuCatComponent() {
+  return <Menu />;
 }

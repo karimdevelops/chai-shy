@@ -5,7 +5,7 @@ export default function useMenuCat() {
 
   useEffect(() => {
     async function fetchMenuCats() {
-      const response = await fetch("/api/admin/menucats");
+      const response = await fetch("/api/menu/menucats");
       const data = await response.json();
       setMenuCat(data);
     }
