@@ -7,8 +7,9 @@
     border-radius: 20px;
 }
 
-.menubar {
+.menu-div {
     display: grid;
+    align-items: start;
     grid-template-columns: auto 1fr;
     gap: 40px;
     padding: 2rem 0;
