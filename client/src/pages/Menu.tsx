@@ -1,13 +1,16 @@
+import { useEffect } from "react";
 import MenuBar from "../components/MenuBar";
-import useMenu from "../hooks/useMenu";
-
-type Product = {
-  name: string;
-  price: number;
-};
+import useMenu, { fetchMenu } from "../hooks/useMenu";
+import { useRouterState } from "@tanstack/react-router";
 
 export default function Menu() {
-  const menu: Product[] = useMenu(1);
+  const routerState = useRouterState();
+  const { menu, setMenu } = useMenu(1);
+
+  useEffect(() => {
+    const menuId = Number(routerState.location.pathname.at(-1));
+    fetchMenu(setMenu, menuId);
+  }, [routerState.location.pathname, setMenu]);
 
   return (
     <div className="menubar">
@@ -15,7 +18,7 @@ export default function Menu() {
       <div className="cards">
         {menu != null
           ? menu.map((x) => (
-              <div className="card flex flex-column flex-center">
+              <div className="card flex flex-column flex-center" key={x.id}>
                 <h4>{x.name}</h4>
                 <p>{x.price}</p>
               </div>

@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
 
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+};
+
+export async function fetchMenu(setData, menuId: number) {
+  const response = await fetch("/api/menu/get", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ cat_id: menuId }),
+  });
+  const data = await response.json();
+  setData(data);
+}
+
 export default function useMenu(id: number) {
-  const [menu, setMenu] = useState([]);
+  const [menu, setMenu] = useState<Product[]>([]);
   const menuId = id;
   useEffect(() => {
-    async function fetchMenu() {
-      const response = await fetch("/api/menu/get", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cat_id: menuId }),
-      });
-      const data = await response.json();
-      setMenu(data);
-    }
+    fetchMenu(setMenu, menuId);
+  }, [menuId]);
 
-    fetchMenu();
-  }, []);
-
-  return menu;
+  return { menu, setMenu };
 }
