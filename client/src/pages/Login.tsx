@@ -7,7 +7,7 @@ export default function Login() {
       <h1 className="auth-heading">Welcome back</h1>
       <form
         className="flex flex-column flex-gap-30"
-        action="/api/login/password"
+        action="/api/auth/login"
         method="POST"
       >
         <input name="email" type="text" id="email" placeholder="Email" />
@@ -26,7 +26,7 @@ export default function Login() {
       </form>
       <div className="flex flex-center flex-column flex-gap-20">
         <p className="info-text">Don't have an account?</p>
-        <Link to="/login">
+        <Link to="/signup">
           <button className="btn transparent-btn">Signup</button>
         </Link>
       </div>
