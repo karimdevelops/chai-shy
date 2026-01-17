@@ -31,14 +31,14 @@ export default function Menu() {
                       height={165}
                       width={"auto"}
                     />
-                    <p className="product-name">{x.name}</p>
+                    <p className="product-price">${x.price}</p>
                   </div>
                   <div className="flex flex-column flex-center flex-gap-20 back">
                     <p className="info product-info">{x.description}</p>
                     <button className="btn-add-cart">Add to Cart</button>
                   </div>
                 </div>
-                <p className="product-price">${x.price}</p>
+                <p className="product-name">{x.name}</p>
               </div>
             ))
           : null}
