@@ -121,6 +121,16 @@ body {
   background-color: var(--secondary-color);
 }
 
+.link-default,
+.btn-default {
+  font-size: 1rem;
+  color: var(--main-text-color);
+  text-decoration: none;
+  color: var(--main-text-color);
+  background-color: transparent;
+  border: none;
+}
+
 .main {
   min-height: 70vh;
   padding: 3rem;

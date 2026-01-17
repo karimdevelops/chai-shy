@@ -11,6 +11,10 @@ function RootComponent() {
   const location = useLocation();
   const user = useGetUser();
 
+  if (!user) {
+    return <div></div>;
+  }
+
   return (
     <UserContext value={user}>
       <div className="main">
