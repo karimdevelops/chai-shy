@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-center flex-gap-50">
+      <div className="flex flex-center flex-gap-50 padding-2">
         <div className="flex flex-column intro flex-gap-50">
           <div>
             <h5>Chase The Classic Flavour</h5>
@@ -22,7 +22,7 @@ export default function Home() {
         </div>
         <div className="flex flex-column hero">
           <figure className="flex">
-            <img width="auto" height="550px" src="./hero.avif" alt="Tea cups" />
+            <img width="auto" height="500px" src="./hero.avif" alt="Tea cups" />
             <figcaption>
               <a
                 className="link-credits"

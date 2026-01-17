@@ -19,6 +19,11 @@ input[type="file"]::file-selector-button {
     border-bottom: 2px solid var(--secondary-color);
 }
 
+input {
+    border-bottom: 2px solid var(--border-color);
+    transition: border 0.5s;
+}
+
 textarea {
     font-size: 1rem;
     min-height: 10vh;
@@ -30,6 +35,7 @@ textarea {
 input:focus-visible,
 textarea:focus-visible {
     outline: none;
+    border-bottom: 2px solid var(--secondary-color);
 }
 
 input[type="file"] {

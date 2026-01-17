@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as MenuRouteImport } from './routes/menu'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MenuCatRouteImport } from './routes/menu.$cat'
@@ -17,6 +18,11 @@ import { Route as MenuCatRouteImport } from './routes/menu.$cat'
 const MenuRoute = MenuRouteImport.update({
   id: '/menu',
   path: '/menu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminRoute = AdminRouteImport.update({
@@ -38,12 +44,14 @@ const MenuCatRoute = MenuCatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/login': typeof LoginRoute
   '/menu': typeof MenuRouteWithChildren
   '/menu/$cat': typeof MenuCatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/login': typeof LoginRoute
   '/menu': typeof MenuRouteWithChildren
   '/menu/$cat': typeof MenuCatRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
+  '/login': typeof LoginRoute
   '/menu': typeof MenuRouteWithChildren
   '/menu/$cat': typeof MenuCatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/admin' | '/menu' | '/menu/$cat'
+  fullPaths: '/' | '/admin' | '/login' | '/menu' | '/menu/$cat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/admin' | '/menu' | '/menu/$cat'
-  id: '__root__' | '/' | '/admin' | '/menu' | '/menu/$cat'
+  to: '/' | '/admin' | '/login' | '/menu' | '/menu/$cat'
+  id: '__root__' | '/' | '/admin' | '/login' | '/menu' | '/menu/$cat'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRoute
+  LoginRoute: typeof LoginRoute
   MenuRoute: typeof MenuRouteWithChildren
 }
 
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       path: '/menu'
       fullPath: '/menu'
       preLoaderRoute: typeof MenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin': {
@@ -114,6 +131,7 @@ const MenuRouteWithChildren = MenuRoute._addFileChildren(MenuRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRoute,
+  LoginRoute: LoginRoute,
   MenuRoute: MenuRouteWithChildren,
 }
 export const routeTree = rootRouteImport

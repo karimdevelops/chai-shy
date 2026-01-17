@@ -33,15 +33,13 @@
 
 body {
   font-family: "Inter";
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   line-height: 1.5;
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
 }
 
-.flex,
-.flex-column,
-.flex-center {
+.flex {
   display: flex;
 }
 
@@ -53,6 +51,10 @@ body {
   gap: 20px;
 }
 
+.flex-gap-30 {
+  gap: 30px;
+}
+
 .flex-gap-50 {
   gap: 50px;
 }
@@ -61,13 +63,25 @@ body {
   flex-direction: column;
 }
 
+.flex-items-center {
+  align-items: center;
+}
+
 .flex-center {
   justify-content: center;
   align-items: center;
 }
 
+.marginl-auto {
+  margin-left: auto;
+}
+
 .mheight-70 {
   min-height: 70vh;
+}
+
+.padding-2 {
+  padding: 2rem;
 }
 
 .link-nav,
@@ -89,6 +103,22 @@ body {
 .logo {
   font-family: "Playfair Display", serif, sans-serif;
   font-size: 1.35rem;
+}
+
+.btn {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  background-color: transparent;
+  border-radius: 20px;
+  border: 1px solid var(--secondary-color);
+  padding: 0.5rem 1rem;
+}
+
+.theme-btn {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--main-bg-color);
+  background-color: var(--secondary-color);
 }
 
 .main {
