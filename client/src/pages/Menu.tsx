@@ -3,6 +3,7 @@ import MenuBar from "../components/MenuBar";
 import useMenu, { fetchMenu } from "../hooks/useMenu";
 import { useRouterState } from "@tanstack/react-router";
 import "../styles/Menu.css";
+import MenuProduct from "../components/MenuProduct";
 
 export default function Menu() {
   const routerState = useRouterState();
@@ -18,28 +19,8 @@ export default function Menu() {
       <MenuBar />
       <div className="cards">
         {menu != null
-          ? menu.map((x) => (
-              <div
-                className="flex flex-column flex-center flex-gap-5 flip-container"
-                key={x.id}
-              >
-                <div className="card flip-card">
-                  <div className="flex flex-column flex-center front">
-                    <img
-                      src={`/api/uploads/${x.name.toLowerCase()}.avif`}
-                      alt=""
-                      height={165}
-                      width={"auto"}
-                    />
-                    <p className="product-price">${x.price}</p>
-                  </div>
-                  <div className="flex flex-column flex-center flex-gap-20 back">
-                    <p className="info product-info">{x.description}</p>
-                    <button className="btn-add-cart">Add to Cart</button>
-                  </div>
-                </div>
-                <p className="product-name">{x.name}</p>
-              </div>
+          ? menu.map((product) => (
+              <MenuProduct key={product.id} product={product} />
             ))
           : null}
       </div>
