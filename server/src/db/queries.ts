@@ -1,4 +1,25 @@
 import pool from "./pool.ts";
+import type { IUser } from "../types/user.ts";
+
+export async function createUser(
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string
+) {
+    try {
+        const { rows } = await pool.query(`
+            INSERT INTO
+            users (firstName, lastName, email, password) 
+            VALUES ($1, $2, $3, $4)
+            RETURNING firstName, lastName, email, password`
+            , [firstName, lastName, email, password]);
+        const user = rows[0] as IUser | undefined;
+        return user;
+    } catch (err) {
+        console.error(`Error: ${err}`);
+    }
+}
 
 export async function addMenu(
     cat_id: number,
