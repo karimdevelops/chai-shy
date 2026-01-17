@@ -86,6 +86,11 @@ body {
   color: var(--secondary-color);
 }
 
+.logo {
+  font-family: "Playfair Display", serif, sans-serif;
+  font-size: 1.35rem;
+}
+
 .main {
   min-height: 70vh;
   padding: 3rem;

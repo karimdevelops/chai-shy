@@ -4,17 +4,19 @@ import "../styles/Navbar.css";
 export default function Navbar() {
   return (
     <nav>
-      <ul className="navbar flex flex-gap-20">
-        <Link
-          to="/"
-          activeProps={{ className: "link-active" }}
-          className="link-nav"
-        >
-          <li className="logo">Chai Shy</li>
-        </Link>
+      <ul className="navbar flex flex-center flex-gap-20">
         <li>
           <Link
-            to="/menu"
+            to="/"
+            activeProps={{ className: "link-active" }}
+            className="link-nav logo"
+          >
+            Chai Shy
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/menu/drinks-1"
             activeProps={{ className: "link-active" }}
             className="link-nav"
           >

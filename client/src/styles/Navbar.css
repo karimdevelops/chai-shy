@@ -1,28 +1,19 @@
 .navbar {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    color: var(--main-text-color);
     background-color: var(--secondary-bg-color);
-    list-style-type: none;
     box-shadow: 0 5px 5px var(--uplift-color);
     padding: 1rem 2rem;
     width: max-content;
     border-radius: 20px;
+    border: none
 }
 
 .navbar-menu {
     font-size: 1.15rem;
 }
 
-.nav-li {
+.navbar li {
     list-style-type: none;
-}
-
-.navbar button {
-    font-family: Montserrat, Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    background-color: transparent;
-    color: var(--main-text-color);
-    border: none
-}
-
-.logo button {
-    font-family: Playfair Display, serif, sans-serif
 }

@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 export default function Home() {
   return (
     <>
@@ -14,9 +16,9 @@ export default function Home() {
             where you can get the desi tea for less than $5, even though the
             taste is worth a million times more! <i>slurps...</i>
           </p>
-          <a className="link-button" href="">
+          <Link to="/menu/" className="link-button">
             Explore Menu
-          </a>
+          </Link>
         </div>
         <div className="flex flex-column hero">
           <figure className="flex">
