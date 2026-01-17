@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import MenuBar from "../components/MenuBar";
 import useMenu, { fetchMenu } from "../hooks/useMenu";
 import { useRouterState } from "@tanstack/react-router";
+import "../styles/Menu.css";
 
 export default function Menu() {
   const routerState = useRouterState();
@@ -18,14 +19,25 @@ export default function Menu() {
       <div className="cards">
         {menu != null
           ? menu.map((x) => (
-              <div className="card flex flex-column flex-center" key={x.id}>
-                <img
-                  src={`/api/uploads/${x.name.toLowerCase()}.avif`}
-                  alt=""
-                  height={165}
-                  width={"auto"}
-                />
-                <p className="product-name">{x.name}</p>
+              <div
+                className="flex flex-column flex-center flex-gap-5 flip-container"
+                key={x.id}
+              >
+                <div className="card flip-card">
+                  <div className="flex flex-column flex-center front">
+                    <img
+                      src={`/api/uploads/${x.name.toLowerCase()}.avif`}
+                      alt=""
+                      height={165}
+                      width={"auto"}
+                    />
+                    <p className="product-name">{x.name}</p>
+                  </div>
+                  <div className="flex flex-column flex-center flex-gap-20 back">
+                    <p className="info">{x.description}</p>
+                    <button className="btn-add-cart">Add to Cart</button>
+                  </div>
+                </div>
                 <p className="product-price">${x.price}</p>
               </div>
             ))
