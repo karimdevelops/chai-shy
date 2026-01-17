@@ -32,6 +32,12 @@ CREATE TABLE IF NOT EXISTS menu (
     price DECIMAL,
     description VARCHAR(255)
 );
+
+CREATE TABLE IF NOT EXISTS cart (
+    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    user_id INTEGER REFERENCES users (id),
+    menu_id INTEGER REFERENCES menu (id)
+);
 `
 
 async function main() {
