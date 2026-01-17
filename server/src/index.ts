@@ -5,8 +5,9 @@ import passport from "passport";
 import session from "express-session";
 import connectPgSimple from "connect-pg-simple";
 
-import adminRouter from "./routes/admin.ts";
 import authRouter from "./routes/auth.ts";
+import userRouter from "./routes/user.ts";
+import adminRouter from "./routes/admin.ts";
 import menuRouter from "./routes/menu.ts";
 import pool from "./db/pool.ts";
 
@@ -34,6 +35,7 @@ app.use(express.json());
 app.use("/api/uploads", express.static(path.join(__dirname, "..", "uploads")));
 
 app.use("/api/auth", authRouter);
+app.use("/api/user", userRouter);
 app.use("/api/admin", adminRouter);
 app.use("/api/menu", menuRouter);
 
