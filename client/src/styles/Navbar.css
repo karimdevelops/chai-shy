@@ -7,14 +7,6 @@
     border-radius: 20px;
 }
 
-.menu-div {
-    display: grid;
-    align-items: start;
-    grid-template-columns: auto 1fr;
-    gap: 40px;
-    padding: 2rem 0;
-}
-
 .navbar-menu {
     font-size: 1.15rem;
 }

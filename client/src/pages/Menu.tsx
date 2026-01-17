@@ -34,7 +34,7 @@ export default function Menu() {
                     <p className="product-name">{x.name}</p>
                   </div>
                   <div className="flex flex-column flex-center flex-gap-20 back">
-                    <p className="info">{x.description}</p>
+                    <p className="info product-info">{x.description}</p>
                     <button className="btn-add-cart">Add to Cart</button>
                   </div>
                 </div>
