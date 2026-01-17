@@ -17,19 +17,14 @@ export default function AddForm() {
         placeholder="Product Price"
         step={0.1}
       />
-      <textarea name="desc" placeholder="Product Description" />
-      <div className="flex flex-gap-20">
-        <select name="menu_category">
-          {menuCat.length != 0
-            ? menuCat.map((cat) => {
-                return <option value={cat["id"]}>{cat["name"]}</option>;
-              })
-            : null}
-        </select>
-        <label htmlFor="img-upload" className="img-upload-label">
-          Upload Image
-        </label>
-      </div>
+      <textarea name="desc" placeholder="Product Description" />{" "}
+      <select name="menu_category">
+        {menuCat.length != 0
+          ? menuCat.map((cat) => {
+              return <option value={cat["id"]}>{cat["name"]}</option>;
+            })
+          : null}
+      </select>
       <input
         type="file"
         name="img"
