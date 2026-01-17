@@ -1,6 +1,26 @@
 import pool from "./pool.ts";
 import type { IUser } from "../types/user.ts";
 
+export async function getUser(email: string) {
+    try {
+        const { rows } = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
+        const user = rows[0] as IUser | undefined;
+        return user;
+    } catch (err) {
+        console.error(`Error: ${err}`);
+    }
+}
+
+export async function getUserById(id: number) {
+    try {
+        const { rows } = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
+        const user = rows[0] as IUser | undefined;
+        return user;
+    } catch (err) {
+        console.error(`Error: ${err}`);
+    }
+}
+
 export async function createUser(
     firstName: string,
     lastName: string,
