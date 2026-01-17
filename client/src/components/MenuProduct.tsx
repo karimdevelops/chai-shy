@@ -1,7 +1,26 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import UserContext from "../contexts/UserContext";
+import { useNavigate } from "@tanstack/react-router";
 
 export default function MenuProduct({ product }) {
+  const user = useContext(UserContext);
   const [isFlip, setIsFlip] = useState(false);
+  const navigate = useNavigate();
+
+  function addToCart(productId) {
+    if (user != "empty") {
+      fetch("/cart/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: user.id,
+          productId: productId,
+        }),
+      });
+    } else navigate({ to: "/login" });
+  }
 
   return (
     <div
@@ -25,7 +44,14 @@ export default function MenuProduct({ product }) {
         </div>
         <div className="flex flex-column flex-center flex-gap-20 back">
           <p className="info product-info">{product.description}</p>
-          <button className="btn-add-cart">Add to Cart</button>
+          <button
+            className="btn-add-cart"
+            onClick={() => {
+              addToCart(product.id);
+            }}
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
       <p className="product-name">{product.name}</p>
