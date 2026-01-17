@@ -60,4 +60,17 @@ passport.use(new LocalStrategy({
     return cb(null, user);
 }))
 
+passport.serializeUser((user: IUser, cb) => {
+    cb(null, user.id);
+})
+
+passport.deserializeUser(async (id: number, cb) => {
+    try {
+        const user = await getUserById(id);
+        return cb(null, user);
+    } catch (err) {
+        console.error(`Error getting user by id: ${err}`);
+    }
+})
+
 export default router;
