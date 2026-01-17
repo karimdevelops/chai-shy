@@ -7,9 +7,9 @@ export default function MenuProduct({ product }) {
   const [isFlip, setIsFlip] = useState(false);
   const navigate = useNavigate();
 
-  function addToCart(productId) {
+  function addToCart(productId: number) {
     if (user != "empty") {
-      fetch("/cart/add", {
+      fetch("/api/cart/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,9 +46,7 @@ export default function MenuProduct({ product }) {
           <p className="info product-info">{product.description}</p>
           <button
             className="btn-add-cart"
-            onClick={() => {
-              addToCart(product.id);
-            }}
+            onClick={() => addToCart(product.id)}
           >
             Add to Cart
           </button>

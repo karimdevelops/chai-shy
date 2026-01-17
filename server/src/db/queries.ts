@@ -73,3 +73,13 @@ export async function getMenuCats() {
     `);
     return rows;
 }
+
+export async function addToCart(user_id: number, menu_id: number) {
+    const { rows } = await pool.query(`
+        INSERT INTO 
+        cart (user_id, menu_id)
+        VALUES ($1, $2)
+        ;
+        `, [user_id, menu_id])
+    return rows;
+}

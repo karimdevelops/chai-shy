@@ -9,6 +9,7 @@ import authRouter from "./routes/auth.ts";
 import userRouter from "./routes/user.ts";
 import adminRouter from "./routes/admin.ts";
 import menuRouter from "./routes/menu.ts";
+import cartRouter from "./routes/cart.ts";
 import pool from "./db/pool.ts";
 
 const app = express();
@@ -38,6 +39,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/admin", adminRouter);
 app.use("/api/menu", menuRouter);
+app.use("/api/cart", cartRouter);
 
 app.listen(PORT, () =>
     console.log(`Listening on port ${PORT}`)
