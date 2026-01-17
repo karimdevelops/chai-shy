@@ -11,7 +11,6 @@ const __dirname = import.meta.dirname;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use("/api/uploads", express.static(path.join(__dirname, "..", "uploads")));
-console.log(path.join(__dirname, "uploads"));
 app.use("/api/admin", adminRouter);
 app.use("/api/menu", menuRouter);
 
