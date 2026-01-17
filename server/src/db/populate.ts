@@ -2,6 +2,16 @@ import "dotenv/config"
 import { Client } from "pg"
 
 const SQL = `
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    firstName VARCHAR (55) NOT NULL UNIQUE,
+    lastName VARCHAR (55) NOT NULL UNIQUE,
+    email VARCHAR (255) NOT NULL UNIQUE,
+    password VARCHAR (255) NOT NULL,
+    is_staff BOOLEAN DEFAULT FALSE,
+    is_admin BOOLEAN DEFAULT FALSE
+);
+
 CREATE TABLE IF NOT EXISTS menu_category (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     name VARCHAR(50)
