@@ -83,3 +83,15 @@ export async function addToCart(user_id: number, menu_id: number) {
         `, [user_id, menu_id])
     return rows;
 }
+
+export async function getCart(userId: number) {
+    const { rows } = await pool.query(`
+        SELECT cart.id, menu.id AS product_id, menu.name, menu.price
+        FROM cart
+        INNER JOIN menu
+        ON cart.user_id = ${userId} AND cart.menu_id = menu.id
+        ;
+    `);
+    return rows;
+}
+
