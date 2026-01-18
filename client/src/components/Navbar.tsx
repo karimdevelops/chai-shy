@@ -74,8 +74,7 @@ export default function Navbar() {
         ) : (
           <ul
             className="navbar dropdown"
-            onMouseEnter={() => setDropdown(true)}
-            onMouseLeave={() => setDropdown(false)}
+            onClick={() => (dropdown ? setDropdown(false) : setDropdown(true))}
           >
             <img src="/icons/gear.svg" alt="settings" />
             {dropdown ? (
