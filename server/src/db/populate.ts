@@ -36,7 +36,9 @@ CREATE TABLE IF NOT EXISTS menu (
 CREATE TABLE IF NOT EXISTS cart (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     user_id INTEGER REFERENCES users (id),
-    menu_id INTEGER REFERENCES menu (id)
+    menu_id INTEGER REFERENCES menu (id),
+    quantity INTEGER DEFAULT 1,
+    UNIQUE (user_id, menu_id)
 );
 `
 

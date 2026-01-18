@@ -36,7 +36,7 @@ export default function Cart() {
                   </div>
                   <div className="marginl-auto">
                     <button>+</button>
-                    <p className="info item-info">Quantity: </p>
+                    <p className="info item-info">Quantity: {item.quantity}</p>
                   </div>
                 </div>
               ))
@@ -47,7 +47,10 @@ export default function Cart() {
             Subtotal: $
             {cart
               ? cart
-                  .reduce((total, item) => total + Number(item.price), 0)
+                  .reduce(
+                    (total, item) => total + Number(item.price) * item.quantity,
+                    0,
+                  )
                   .toFixed(2)
               : 0}
           </h3>

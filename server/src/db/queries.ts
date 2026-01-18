@@ -79,6 +79,9 @@ export async function addToCart(user_id: number, menu_id: number) {
         INSERT INTO 
         cart (user_id, menu_id)
         VALUES ($1, $2)
+        ON CONFLICT (user_id, menu_id)
+        DO UPDATE SET
+        quantity = cart.quantity + 1 
         ;
         `, [user_id, menu_id])
     return rows;
@@ -86,7 +89,7 @@ export async function addToCart(user_id: number, menu_id: number) {
 
 export async function getCart(userId: number) {
     const { rows } = await pool.query(`
-        SELECT cart.id, menu.id AS product_id, menu.name, menu.price
+        SELECT cart.id, cart.quantity, menu.id AS product_id, menu.name, menu.price
         FROM cart
         INNER JOIN menu
         ON cart.user_id = ${userId} AND cart.menu_id = menu.id

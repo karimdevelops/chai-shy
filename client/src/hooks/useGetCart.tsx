@@ -6,6 +6,7 @@ type Cart = {
   productId: number;
   name: string;
   price: number;
+  quantity: number;
 };
 
 export default function useGetCart() {
@@ -31,6 +32,6 @@ export default function useGetCart() {
 
     fetchUser();
   }, [user]);
-
+  console.log(cart);
   return cart;
 }
