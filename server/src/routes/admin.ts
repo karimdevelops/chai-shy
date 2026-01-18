@@ -16,7 +16,7 @@ const router: Router = Router();
 router.post("/add", upload.single("img"), (req, res) => {
     const cat_id = req.body.menu_category;
     const name = req.body.name;
-    const price = req.body.price;
+    const price = Number(req.body.price).toFixed(1);
     const desc = req.body.desc;
     addMenu(cat_id, name, price, desc)
     res.redirect("/admin");
