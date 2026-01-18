@@ -10,37 +10,37 @@ export default function MenuProduct({ product }) {
   const navigate = useNavigate();
 
   function addToCart(e: React.MouseEvent<HTMLButtonElement>, product) {
-    const oldProduct = cart.find((x) => x.productId == product.id);
-    if (oldProduct) {
-      cart.map((x) => {
-        if (x.productId == oldProduct.productId) {
-          return { ...x, quantity: ++x.quantity };
-        }
-        return { ...x };
-      });
-      setCart([...cart]);
-    } else {
-      const newProduct = {
-        productId: product.id,
-        name: product.name,
-        price: product.price,
-        quantity: 1,
-      };
-      setCart([...cart, newProduct]);
-    }
-    e.stopPropagation();
-    // if (user != "empty") {
-    //   fetch("/api/cart/add", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       userId: user.id,
-    //       productId: productId,
-    //     }),
-    //   });
-    // } else navigate({ to: "/login" });
+    if (user != "empty") {
+      const oldProduct = cart.find((x) => x.productId == product.id);
+      if (oldProduct) {
+        cart.map((x) => {
+          if (x.productId == oldProduct.productId) {
+            return { ...x, quantity: ++x.quantity };
+          }
+          return { ...x };
+        });
+        setCart([...cart]);
+      } else {
+        const newProduct = {
+          productId: product.id,
+          name: product.name,
+          price: product.price,
+          quantity: 1,
+        };
+        setCart([...cart, newProduct]);
+      }
+      e.stopPropagation();
+      //   fetch("/api/cart/add", {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({
+      //       userId: user.id,
+      //       productId: productId,
+      //     }),
+      //   });
+    } else navigate({ to: "/login" });
   }
 
   return (

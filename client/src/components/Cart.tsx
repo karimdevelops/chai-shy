@@ -6,6 +6,9 @@ import CartContext from "../contexts/CartContext";
 export default function Cart() {
   const [activeCart, setActiveCart] = useState(false);
   const { cart, setCart } = useContext(CartContext);
+  const dbCart = useGetCart();
+  console.log(dbCart);
+  setCart(dbCart);
 
   function incrementCart(id) {
     cart.map((x) => {

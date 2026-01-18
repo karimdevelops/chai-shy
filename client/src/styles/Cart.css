@@ -18,14 +18,14 @@
     position: absolute;
     top: -12px;
     left: -12px;
+    min-width: 30px;
+    min-height: 30px;
     font-size: 1rem;
     font-weight: 700;
     color: var(--main-bg-color);
     background-color: var(--secondary-color);
     border-radius: 50%;
     z-index: 2;
-    min-width: 30px;
-    min-height: 30px;
 }
 
 .cart-heading {
