@@ -72,29 +72,32 @@ export default function Navbar() {
             </li>
           </ul>
         ) : (
-          <ul
-            className="navbar dropdown"
-            onClick={() => (dropdown ? setDropdown(false) : setDropdown(true))}
-          >
-            <img src="/icons/gear.svg" alt="settings" />
-            {dropdown ? (
-              <li className="dropdown-menu flex flex-column flex-gap-20">
-                <Link className="link-default flex flex-gap-5" to="/profile">
-                  <img src="/icons/profile.svg" alt="profile" />
-                  Profile
-                </Link>
-                <Link className="link-default flex flex-gap-5" to="/support">
-                  <img src="/icons/support.svg" alt="profile" />
-                  Support
-                </Link>
-                <form action="/api/auth/logout" method="post">
-                  <button className="btn-default flex flex-gap-5">
-                    <img src="/icons/logout.svg" alt="profile" />
-                    Logout
-                  </button>
-                </form>
-              </li>
-            ) : null}
+          <ul className="navbar dropdown">
+            <img
+              src="/icons/gear.svg"
+              alt="settings"
+              onClick={() =>
+                dropdown ? setDropdown(false) : setDropdown(true)
+              }
+            />
+            <li
+              className={`dropdown-menu flex flex-column flex-gap-20 ${dropdown ? "active-dropdown" : ""}`}
+            >
+              <Link className="link-default flex flex-gap-5" to="/profile">
+                <img src="/icons/profile.svg" alt="profile" />
+                Profile
+              </Link>
+              <Link className="link-default flex flex-gap-5" to="/support">
+                <img src="/icons/support.svg" alt="profile" />
+                Support
+              </Link>
+              <form action="/api/auth/logout" method="post">
+                <button className="btn-default flex flex-gap-5">
+                  <img src="/icons/logout.svg" alt="profile" />
+                  Logout
+                </button>
+              </form>
+            </li>
           </ul>
         )}
       </nav>

@@ -33,10 +33,18 @@
 .dropdown-menu {
     position: absolute;
     left: 0;
-    padding: 1rem;
     background-color: var(--secondary-bg-color);
     border-radius: 20px;
-    animation: dropdown 0.2s;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+.active-dropdown {
+    opacity: 1;
+    height: auto;
+    padding: 1rem;
 }
 
 @keyframes dropdown {
