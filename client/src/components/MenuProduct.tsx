@@ -10,11 +10,12 @@ export default function MenuProduct({ product }) {
   const navigate = useNavigate();
 
   function addToCart(e: React.MouseEvent<HTMLButtonElement>, product) {
+    console.log(product);
     if (user != "empty") {
-      const oldProduct = cart.find((x) => x.productId == product.id);
+      const oldProduct = cart.find((x) => x.product_id == product.id);
       if (oldProduct) {
         cart.map((x) => {
-          if (x.productId == oldProduct.productId) {
+          if (x.product_id == oldProduct.product_id) {
             return { ...x, quantity: ++x.quantity };
           }
           return { ...x };
@@ -22,7 +23,7 @@ export default function MenuProduct({ product }) {
         setCart([...cart]);
       } else {
         const newProduct = {
-          productId: product.id,
+          product_id: product.id,
           name: product.name,
           price: product.price,
           quantity: 1,
