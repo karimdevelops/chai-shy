@@ -1,10 +1,28 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import useGetCart from "../hooks/useGetCart";
 import "../styles/Cart.css";
+import CartContext from "../contexts/CartContext";
 
 export default function Cart() {
-  const cart = useGetCart();
   const [activeCart, setActiveCart] = useState(false);
+  const { cart, setCart } = useContext(CartContext);
+
+  function incrementCart(id) {
+    cart.map((x) => {
+      if (x.productId == id) return { ...x, quantity: ++x.quantity };
+      return { ...x };
+    });
+    setCart([...cart]);
+  }
+
+  function decrementCart(id) {
+    cart.map((x) => {
+      if (x.productId == id) return { ...x, quantity: --x.quantity };
+      return { ...x };
+    });
+    const newCart = cart.filter((x) => x.quantity > 0);
+    setCart([...newCart]);
+  }
 
   return (
     <>
@@ -28,7 +46,7 @@ export default function Cart() {
             ? cart.map((item) => (
                 <div
                   className="cart-item flex flex-items-center flex-gap-5"
-                  key={item.id}
+                  key={item.productId}
                 >
                   <img
                     src={`/api/uploads/${item.name.toLowerCase()}.avif`}
@@ -41,7 +59,22 @@ export default function Cart() {
                     <p>${item.price}</p>
                   </div>
                   <div className="marginl-auto">
-                    <button>+</button>
+                    <div className="marginl-auto flex flex-end flex-gap-5">
+                      <img
+                        src="/icons/plus.svg"
+                        alt="Increment"
+                        onClick={() => {
+                          incrementCart(item.productId);
+                        }}
+                      />
+                      <img
+                        src="/icons/minus.svg"
+                        alt="Decrement"
+                        onClick={() => {
+                          decrementCart(item.productId);
+                        }}
+                      />
+                    </div>
                     <p className="info item-info">Quantity: {item.quantity}</p>
                   </div>
                 </div>

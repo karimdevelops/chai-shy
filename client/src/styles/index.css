@@ -68,6 +68,14 @@ body {
   align-items: center;
 }
 
+.flex-sp-between {
+  justify-content: space-between;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
 .flex-center {
   justify-content: center;
   align-items: center;
