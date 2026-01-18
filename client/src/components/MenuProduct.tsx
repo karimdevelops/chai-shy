@@ -41,7 +41,7 @@ export default function MenuProduct({ product }) {
           <img
             src={`/api/uploads/${product.name.toLowerCase()}.avif`}
             alt=""
-            height={165}
+            height={175}
             width={"auto"}
           />
           <p className="product-price">${product.price}</p>

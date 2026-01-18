@@ -1,7 +1,8 @@
 .cart-toggle {
-    position: absolute;
+    position: fixed;
     bottom: 30px;
     right: 30px;
+    z-index: 2;
 }
 
 .cart-logo {
@@ -20,6 +21,7 @@
     background-color: var(--secondary-color);
     border-radius: 50%;
     padding: 0.1rem 0.5rem;
+    z-index: 2;
 }
 
 .cart-heading {
