@@ -7,7 +7,11 @@ export default function MenuProduct({ product }) {
   const [isFlip, setIsFlip] = useState(false);
   const navigate = useNavigate();
 
-  function addToCart(productId: number) {
+  function addToCart(
+    e: React.MouseEvent<HTMLButtonElement>,
+    productId: number,
+  ) {
+    e.stopPropagation();
     if (user != "empty") {
       fetch("/api/cart/add", {
         method: "POST",
@@ -46,7 +50,9 @@ export default function MenuProduct({ product }) {
           <p className="info product-info">{product.description}</p>
           <button
             className="btn-add-cart"
-            onClick={() => addToCart(product.id)}
+            onClick={(e) => {
+              addToCart(e, product.id);
+            }}
           >
             Add to Cart
           </button>
