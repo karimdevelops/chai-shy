@@ -76,6 +76,10 @@ body {
   margin-left: auto;
 }
 
+.margint-auto {
+  margin-top: auto;
+}
+
 .mheight-70 {
   min-height: 70vh;
 }
@@ -167,6 +171,14 @@ body {
 .info {
   font-size: 1.15rem;
   color: var(--info-text-color);
+}
+
+.item-info {
+  font-size: 1rem;
+}
+
+.center-text {
+  text-align: center;
 }
 
 .link-button {

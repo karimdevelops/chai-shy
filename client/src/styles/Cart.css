@@ -1,0 +1,38 @@
+.cart-toggle {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+.cart-logo {
+    background-color: var(--secondary-bg-color);
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.cart-heading {
+    font-family: "Playfair Display", serif;
+    padding: 1rem;
+}
+
+.cart-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.cart-items {
+    max-height: 65vh;
+    overflow: auto;
+}
+
+.container-cart {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 25%;
+    background-color: var(--secondary-bg-color);
+    box-shadow: 0 5px 5px var(--uplift-color);
+    z-index: 10;
+    padding: 0 1rem;
+}
