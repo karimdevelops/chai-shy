@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/UserContext";
 
 type Cart = {
+  id: number;
+  productId: number;
   name: string;
   price: number;
 };

@@ -1,20 +1,29 @@
+import { useState } from "react";
 import useGetCart from "../hooks/useGetCart";
 import "../styles/Cart.css";
 
 export default function Cart() {
   const cart = useGetCart();
-  console.log(cart);
+  const [activeCart, setActiveCart] = useState(false);
+
   return (
     <>
-      <div className="cart-toggle">
-        <img src="/icons/cart.svg" alt="cart" className="logo-cart" />
+      <div className="cart-toggle" onClick={() => setActiveCart(true)}>
+        <img src="/icons/cart.svg" alt="cart" className="cart-logo" />
       </div>
-      <div className="container-cart flex flex-column flex-gap-20">
-        <h2 className="center-text cart-heading">Shopping Cart</h2>
+      <div
+        className={`container-cart flex flex-column flex-gap-20 ${activeCart ? "show-cart" : "hide-cart"}`}
+      >
+        <div className="flex flex-items-center">
+          <h2 className="center-text cart-heading">Shopping Cart</h2>
+          <div className="marginl-auto" onClick={() => setActiveCart(false)}>
+            <img src="/icons/close.svg" alt="close" />
+          </div>
+        </div>
         <div className="cart-items">
           {cart
             ? cart.map((item) => (
-                <div className="cart-item flex flex-gap-5">
+                <div className="cart-item flex flex-gap-5" key={item.id}>
                   <img
                     src={`/api/uploads/${item.name.toLowerCase()}.avif`}
                     alt=""
