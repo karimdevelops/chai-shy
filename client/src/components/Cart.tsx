@@ -9,6 +9,9 @@ export default function Cart() {
   return (
     <>
       <div className="cart-toggle" onClick={() => setActiveCart(true)}>
+        <span className="cart-count">
+          {cart ? cart.reduce((total, item) => total + item.quantity, 0) : 0}
+        </span>
         <img src="/icons/cart.svg" alt="cart" className="cart-logo" />
       </div>
       <div
