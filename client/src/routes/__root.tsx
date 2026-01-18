@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar";
 import useGetUser from "../hooks/useGetUser";
 import UserContext from "../contexts/UserContext";
 import Cart from "../components/Cart";
+import CartContext from "../contexts/CartContext";
+import { useState } from "react";
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -11,6 +13,7 @@ export const Route = createRootRoute({
 function RootComponent() {
   const location = useLocation();
   const user = useGetUser();
+  const [cart, setCart] = useState([]);
 
   if (!user) {
     return <div></div>;
@@ -18,11 +21,13 @@ function RootComponent() {
 
   return (
     <UserContext value={user}>
-      <div className="main">
-        {location.pathname !== "/admin" ? <Navbar /> : null}
-        <Cart />
-        <Outlet />
-      </div>
+      <CartContext value={{ cart, setCart }}>
+        <div className="main">
+          {location.pathname !== "/admin" ? <Navbar /> : null}
+          <Cart />
+          <Outlet />
+        </div>
+      </CartContext>
     </UserContext>
   );
 }

@@ -26,7 +26,10 @@ export default function Cart() {
         <div className="cart-items">
           {cart
             ? cart.map((item) => (
-                <div className="cart-item flex flex-gap-5" key={item.id}>
+                <div
+                  className="cart-item flex flex-items-center flex-gap-5"
+                  key={item.id}
+                >
                   <img
                     src={`/api/uploads/${item.name.toLowerCase()}.avif`}
                     alt=""

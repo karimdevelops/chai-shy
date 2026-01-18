@@ -1,29 +1,46 @@
 import { useContext, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import { useNavigate } from "@tanstack/react-router";
+import CartContext from "../contexts/CartContext";
 
 export default function MenuProduct({ product }) {
   const user = useContext(UserContext);
+  const { cart, setCart } = useContext(CartContext);
   const [isFlip, setIsFlip] = useState(false);
   const navigate = useNavigate();
 
-  function addToCart(
-    e: React.MouseEvent<HTMLButtonElement>,
-    productId: number,
-  ) {
-    e.stopPropagation();
-    if (user != "empty") {
-      fetch("/api/cart/add", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId: user.id,
-          productId: productId,
-        }),
+  function addToCart(e: React.MouseEvent<HTMLButtonElement>, product) {
+    const oldProduct = cart.find((x) => x.productId == product.id);
+    if (oldProduct) {
+      cart.map((x) => {
+        if (x.productId == oldProduct.productId) {
+          return { ...x, quantity: ++x.quantity };
+        }
+        return { ...x };
       });
-    } else navigate({ to: "/login" });
+      setCart([...cart]);
+    } else {
+      const newProduct = {
+        productId: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: 1,
+      };
+      setCart([...cart, newProduct]);
+    }
+    e.stopPropagation();
+    // if (user != "empty") {
+    //   fetch("/api/cart/add", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       userId: user.id,
+    //       productId: productId,
+    //     }),
+    //   });
+    // } else navigate({ to: "/login" });
   }
 
   return (
@@ -51,7 +68,7 @@ export default function MenuProduct({ product }) {
           <button
             className="btn-add-cart"
             onClick={(e) => {
-              addToCart(e, product.id);
+              addToCart(e, product);
             }}
           >
             Add to Cart
