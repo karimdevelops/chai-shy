@@ -29,7 +29,7 @@ export default function Cart() {
 
   function incrementCart(id) {
     cart.map((x) => {
-      if (x.productId == id) return { ...x, quantity: ++x.quantity };
+      if (x.product_id == id) return { ...x, quantity: ++x.quantity };
       return { ...x };
     });
     setCart([...cart]);
@@ -37,9 +37,10 @@ export default function Cart() {
 
   function decrementCart(id) {
     cart.map((x) => {
-      if (x.productId == id) return { ...x, quantity: --x.quantity };
+      if (x.product_id == id) return { ...x, quantity: --x.quantity };
       return { ...x };
     });
+    console.log(cart);
     const newCart = cart.filter((x) => x.quantity > 0);
     setCart([...newCart]);
   }
@@ -84,14 +85,14 @@ export default function Cart() {
                         src="/icons/plus.svg"
                         alt="Increment"
                         onClick={() => {
-                          incrementCart(item.productId);
+                          incrementCart(item.product_id);
                         }}
                       />
                       <img
                         src="/icons/minus.svg"
                         alt="Decrement"
                         onClick={() => {
-                          decrementCart(item.productId);
+                          decrementCart(item.product_id);
                         }}
                       />
                     </div>

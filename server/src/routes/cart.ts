@@ -5,8 +5,12 @@ const router: Router = Router();
 router.post("/add", (req, res) => {
     const userId = req.body.userId;
     const cart = req.body.cart;
-    console.log(cart);
-    // addToCart(userId, productId);
+    const cartProducts = cart.map((x) => ({
+        user_id: userId,
+        menu_id: x.product_id,
+        quantity: x.quantity
+    }))
+    addToCart(cartProducts);
 })
 
 router.post("/get", async (req, res) => {

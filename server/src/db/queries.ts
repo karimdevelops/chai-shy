@@ -74,18 +74,23 @@ export async function getMenuCats() {
     return rows;
 }
 
-export async function addToCart(user_id: number, menu_id: number) {
+export async function addToCart(cartProducts) {
     const { rows } = await pool.query(`
         INSERT INTO 
-        cart (user_id, menu_id)
-        VALUES ($1, $2)
+        cart (user_id, menu_id, quantity)
+        SELECT user_id, menu_id, quantity 
+        FROM jsonb_to_recordset($1::jsonb) 
+        AS t (user_id int, menu_id int, quantity int)
         ON CONFLICT (user_id, menu_id)
         DO UPDATE SET
-        quantity = cart.quantity + 1 
+        quantity = EXCLUDED.quantity
         ;
-        `, [user_id, menu_id])
+        `, [JSON.stringify(cartProducts)])
     return rows;
 }
+// Command to increase quantity if product already present
+// UPDATE SET
+//         quantity = cart.quantity + 1 
 
 export async function getCart(userId: number) {
     const { rows } = await pool.query(`
