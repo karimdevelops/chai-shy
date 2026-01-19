@@ -40,8 +40,20 @@ export default function Cart() {
       if (x.product_id == id) return { ...x, quantity: --x.quantity };
       return { ...x };
     });
-    console.log(cart);
-    const newCart = cart.filter((x) => x.quantity > 0);
+    const newCart = cart.filter((x) => {
+      if (x.quantity == 0) {
+        fetch("/api/cart/delete", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            productId: x.product_id,
+          }),
+        });
+      }
+      return x.quantity > 0;
+    });
     setCart([...newCart]);
   }
 

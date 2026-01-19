@@ -75,7 +75,7 @@ export async function getMenuCats() {
 }
 
 export async function addToCart(cartProducts) {
-    const { rows } = await pool.query(`
+    await pool.query(`
         INSERT INTO 
         cart (user_id, menu_id, quantity)
         SELECT user_id, menu_id, quantity 
@@ -86,8 +86,14 @@ export async function addToCart(cartProducts) {
         quantity = EXCLUDED.quantity
         ;
         `, [JSON.stringify(cartProducts)])
-    return rows;
 }
+
+export async function deleteFromCart(productId: number) {
+    await pool.query(
+        `DELETE FROM cart WHERE menu_id = $1;`
+        , [productId])
+}
+
 // Command to increase quantity if product already present
 // UPDATE SET
 //         quantity = cart.quantity + 1 
