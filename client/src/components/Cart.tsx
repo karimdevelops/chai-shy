@@ -8,8 +8,7 @@ export default function Cart() {
   const user = useContext(UserContext);
   const { cart, setCart } = useContext(CartContext);
   const [activeCart, setActiveCart] = useState(false);
-  const dbCart = useGetCart();
-  setCart(dbCart);
+  useGetCart();
 
   useEffect(() => {
     async function updateCart() {
