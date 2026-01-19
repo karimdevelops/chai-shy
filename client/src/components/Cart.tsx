@@ -1,14 +1,31 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useGetCart from "../hooks/useGetCart";
 import "../styles/Cart.css";
 import CartContext from "../contexts/CartContext";
+import UserContext from "../contexts/UserContext";
 
 export default function Cart() {
-  const [activeCart, setActiveCart] = useState(false);
+  const user = useContext(UserContext);
   const { cart, setCart } = useContext(CartContext);
+  const [activeCart, setActiveCart] = useState(false);
   const dbCart = useGetCart();
-  console.log(dbCart);
   setCart(dbCart);
+
+  useEffect(() => {
+    async function updateCart() {
+      fetch("/api/cart/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: user.id,
+          cart: cart,
+        }),
+      });
+    }
+    updateCart();
+  }, [cart]);
 
   function incrementCart(id) {
     cart.map((x) => {

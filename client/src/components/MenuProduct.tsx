@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import { useNavigate } from "@tanstack/react-router";
 import CartContext from "../contexts/CartContext";
@@ -10,7 +10,7 @@ export default function MenuProduct({ product }) {
   const navigate = useNavigate();
 
   function addToCart(e: React.MouseEvent<HTMLButtonElement>, product) {
-    console.log(product);
+    e.stopPropagation();
     if (user != "empty") {
       const oldProduct = cart.find((x) => x.product_id == product.id);
       if (oldProduct) {
@@ -30,17 +30,6 @@ export default function MenuProduct({ product }) {
         };
         setCart([...cart, newProduct]);
       }
-      e.stopPropagation();
-      //   fetch("/api/cart/add", {
-      //     method: "POST",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify({
-      //       userId: user.id,
-      //       productId: productId,
-      //     }),
-      //   });
     } else navigate({ to: "/login" });
   }
 
