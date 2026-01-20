@@ -85,7 +85,7 @@ export default function Cart() {
             ? cart.map((item) => (
                 <div
                   className="cart-item flex flex-items-center flex-gap-5"
-                  key={item.productId}
+                  key={item.product_id}
                 >
                   <img
                     src={`/api/uploads/${item.name.toLowerCase().replaceAll(" ", "")}.avif`}
