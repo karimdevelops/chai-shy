@@ -2,7 +2,7 @@ export default function CheckoutProduct({ product }) {
   return (
     <div className="checkout-product flex flex-gap-20" key={product.id}>
       <img
-        src={`/api/uploads/${product.name.toLowerCase()}.avif`}
+        src={`/api/uploads/${product.name.toLowerCase().replaceAll(" ", "")}.avif`}
         alt=""
         height={85}
         width={"auto"}

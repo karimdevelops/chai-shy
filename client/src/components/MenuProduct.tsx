@@ -46,7 +46,7 @@ export default function MenuProduct({ product }) {
       <div className="card flip-card">
         <div className="flex flex-column flex-center front">
           <img
-            src={`/api/uploads/${product.name.toLowerCase()}.avif`}
+            src={`/api/uploads/${product.name.toLowerCase().replaceAll(" ", "")}.avif`}
             alt=""
             height={175}
             width={"auto"}

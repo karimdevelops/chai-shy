@@ -9,6 +9,10 @@
     width: 100%;
 }
 
+.details>div {
+    padding: 0.5rem;
+}
+
 .summary {
     background-color: var(--secondary-bg-color);
 }
@@ -25,7 +29,6 @@
 
 .method {
     list-style-type: none;
-    padding: 1rem;
 }
 
 .method li {

@@ -88,7 +88,7 @@ export default function Cart() {
                   key={item.productId}
                 >
                   <img
-                    src={`/api/uploads/${item.name.toLowerCase()}.avif`}
+                    src={`/api/uploads/${item.name.toLowerCase().replaceAll(" ", "")}.avif`}
                     alt=""
                     height={65}
                     width={"auto"}
@@ -114,7 +114,7 @@ export default function Cart() {
                         }}
                       />
                     </div>
-                    <p className="info item-info">Quantity: {item.quantity}</p>
+                    <p className="info item-info">Qty: {item.quantity}</p>
                   </div>
                 </div>
               ))

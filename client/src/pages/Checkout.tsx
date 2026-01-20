@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CartContext from "../contexts/CartContext";
 import CheckoutProduct from "../components/CheckoutProduct";
 import { getCartSubTotal } from "../utils/calc";
@@ -9,7 +9,13 @@ export default function Checkout() {
   const { cart, setCart } = useContext(CartContext);
   const [shipping, setShipping] = useState(0);
   const [activeId, setActiveId] = useState(0);
-  const cartSubTotal = getCartSubTotal(cart);
+  const [cartSubTotal, setCartSubTotal] = useState(0);
+  useEffect(() => {
+    async function fetchCartTotal() {
+      setCartSubTotal(getCartSubTotal(cart));
+    }
+    fetchCartTotal();
+  }, []);
 
   return (
     <div className="grid grid-2fr-1fr grid-gap-20 checkout">
@@ -23,7 +29,7 @@ export default function Checkout() {
             </div>
           </form>
         </div>
-        <div>
+        <div className="flex flex-column flex-gap-20">
           <h2>Shipping Method</h2>
           <ul className="method">
             <li
@@ -58,7 +64,7 @@ export default function Checkout() {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="flex flex-column flex-gap-20">
           <h2>Payment Method</h2>
           <ul className="method">
             <li className="active">Cash on delivery</li>
