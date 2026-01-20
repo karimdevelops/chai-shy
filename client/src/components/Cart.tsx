@@ -98,23 +98,25 @@ export default function Cart() {
                     <p>${item.price}</p>
                   </div>
                   <div className="marginl-auto">
-                    <div className="marginl-auto flex flex-end flex-gap-5">
-                      <img
-                        src="/icons/plus.svg"
-                        alt="Increment"
-                        onClick={() => {
-                          incrementCart(item.product_id);
-                        }}
-                      />
-                      <img
-                        src="/icons/minus.svg"
-                        alt="Decrement"
-                        onClick={() => {
-                          decrementCart(item.product_id);
-                        }}
-                      />
+                    <div className="flex flex-column flex-sp-between">
+                      <div className="marginl-auto">
+                        <img
+                          src="/icons/plus.svg"
+                          alt="Increment"
+                          onClick={() => {
+                            incrementCart(item.product_id);
+                          }}
+                        />
+                        <img
+                          src="/icons/minus.svg"
+                          alt="Decrement"
+                          onClick={() => {
+                            decrementCart(item.product_id);
+                          }}
+                        />
+                      </div>
+                      <p className="info item-info">Qty: {item.quantity}</p>
                     </div>
-                    <p className="info item-info">Qty: {item.quantity}</p>
                   </div>
                 </div>
               ))
