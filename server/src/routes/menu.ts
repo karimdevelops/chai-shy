@@ -6,12 +6,12 @@ const router: Router = Router();
 router.post("/get", async (req, res) => {
     const catId = req.body.cat_id;
     const results = await getMenu(catId);
-    res.send(results);
+    res.status(200).send(results);
 })
 
 router.get("/menucats", async (req, res) => {
     const cats = await getMenuCats();
-    res.json(cats);
+    res.status(200).json(cats);
 })
 
 export default router;

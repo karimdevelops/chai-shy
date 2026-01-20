@@ -13,17 +13,19 @@ router.post("/add", (req, res) => {
     }));
 
     addToCart(cartProducts);
+    res.sendStatus(201);
 })
 
 router.post("/delete", (req, res) => {
     const productId = req.body.productId;
     deleteFromCart(productId);
+    res.sendStatus(204);
 })
 
 router.post("/get", async (req, res) => {
     const userId = req.body.userId;
     const results = await getCart(userId);
-    res.json(results);
+    res.status(200).json(results);
 })
 
 export default router;
