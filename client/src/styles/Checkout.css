@@ -1,8 +1,16 @@
+.details,
+.summary {
+    border-radius: 20px;
+    box-shadow: 0 5px 5px var(--uplift-color);
+    padding: 1rem;
+}
+
+.details input {
+    width: 100%;
+}
+
 .summary {
     background-color: var(--secondary-bg-color);
-    border-radius: 20px;
-    padding: 1rem;
-    box-shadow: 0 5px 5px var(--uplift-color);
 }
 
 .checkout-product {
@@ -13,4 +21,30 @@
 .checkout-products {
     max-height: 40vh;
     overflow-y: auto;
+}
+
+.method {
+    list-style-type: none;
+    padding: 1rem;
+}
+
+.method li {
+    padding: 1rem;
+    border: 1px solid var(--secondary-bg-color);
+    transition: all 0.5s;
+}
+
+.method li:first-child {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.method li:last-child {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.method li.active {
+    background-color: var(--secondary-color-lighter);
+    border: 1px solid var(--secondary-color);
 }

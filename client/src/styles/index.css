@@ -18,7 +18,7 @@
   --secondary-bg-color: #191919;
   --secondary-book-bg-color: #0c0c0c;
   --secondary-color: #dcca87;
-
+  --secondary-color-lighter: rgba(220, 202, 135, 0.1);
   --border-color: #26231c;
   --uplift-color: #000000;
 
@@ -87,6 +87,10 @@ body {
 
 .grid-2fr-1fr {
   grid-template-columns: 2fr 1fr;
+}
+
+.grid-gap-20 {
+  gap: 20px;
 }
 
 .marginl-auto {
