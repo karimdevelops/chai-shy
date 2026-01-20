@@ -1,8 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import useGetCart from "../hooks/useGetCart";
-import "../styles/Cart.css";
 import CartContext from "../contexts/CartContext";
 import UserContext from "../contexts/UserContext";
+import { Link } from "@tanstack/react-router";
+import { getCartSubTotal } from "../utils/calc";
+
+import "../styles/Cart.css";
 
 export default function Cart() {
   const user = useContext(UserContext);
@@ -114,18 +117,10 @@ export default function Cart() {
             : null}
         </div>
         <div className="flex flex-column flex-gap-20 margint-auto padding-2">
-          <h3>
-            Subtotal: $
-            {cart
-              ? cart
-                  .reduce(
-                    (total, item) => total + Number(item.price) * item.quantity,
-                    0,
-                  )
-                  .toFixed(2)
-              : 0}
-          </h3>
-          <button className="theme-btn btn">Checkout</button>
+          <h3>Subtotal: ${getCartSubTotal(cart)}</h3>
+          <Link className="link-theme link-default" to="/checkout">
+            Checkout
+          </Link>
         </div>
       </div>
     </>

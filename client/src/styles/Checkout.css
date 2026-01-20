@@ -1,0 +1,16 @@
+.summary {
+    background-color: var(--secondary-bg-color);
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 5px 5px var(--uplift-color);
+}
+
+.checkout-product {
+    padding: 0.5rem;
+    border-top: 1px dotted var(--main-text-color);
+}
+
+.checkout-products {
+    max-height: 40vh;
+    overflow-y: auto;
+}

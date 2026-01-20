@@ -81,6 +81,14 @@ body {
   align-items: center;
 }
 
+.grid {
+  display: grid;
+}
+
+.grid-2fr-1fr {
+  grid-template-columns: 2fr 1fr;
+}
+
 .marginl-auto {
   margin-left: auto;
 }
@@ -118,20 +126,14 @@ body {
   font-size: 1.35rem;
 }
 
-.btn {
+.btn,
+.link-theme {
   font-size: 1rem;
   color: var(--secondary-color);
   background-color: transparent;
   border-radius: 20px;
   border: 1px solid var(--secondary-color);
   padding: 0.5rem 1rem;
-}
-
-.theme-btn {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--main-bg-color);
-  background-color: var(--secondary-color);
 }
 
 .link-default,
@@ -142,6 +144,15 @@ body {
   color: var(--main-text-color);
   background-color: transparent;
   border: none;
+}
+
+.theme-btn,
+.link-theme {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--main-bg-color);
+  background-color: var(--secondary-color);
+  text-align: center;
 }
 
 .main {
