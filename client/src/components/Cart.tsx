@@ -2,13 +2,15 @@ import { useContext, useEffect, useState } from "react";
 import useGetCart from "../hooks/useGetCart";
 import CartContext from "../contexts/CartContext";
 import UserContext from "../contexts/UserContext";
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { getCartSubTotal } from "../utils/calc";
 
 import "../styles/Cart.css";
 
 export default function Cart() {
   const user = useContext(UserContext);
+  const location = useLocation();
+  const notAllowed = ["/checkout", "/admin"];
   const { cart, setCart } = useContext(CartContext);
   const [activeCart, setActiveCart] = useState(false);
   useGetCart();
@@ -61,12 +63,14 @@ export default function Cart() {
 
   return (
     <>
-      <div className="cart-toggle" onClick={() => setActiveCart(true)}>
-        <span className="cart-count">
-          {cart ? cart.reduce((total, item) => total + item.quantity, 0) : 0}
-        </span>
-        <img src="/icons/cart.svg" alt="cart" className="cart-logo" />
-      </div>
+      {!notAllowed.includes(location.pathname) ? (
+        <div className="cart-toggle" onClick={() => setActiveCart(true)}>
+          <span className="cart-count">
+            {cart ? cart.reduce((total, item) => total + item.quantity, 0) : 0}
+          </span>
+          <img src="/icons/cart.svg" alt="cart" className="cart-logo" />
+        </div>
+      ) : null}
       <div
         className={`container-cart flex flex-column flex-gap-20 ${activeCart ? "show-cart" : "hide-cart"}`}
       >
