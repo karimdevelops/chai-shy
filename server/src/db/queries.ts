@@ -94,6 +94,12 @@ export async function deleteFromCart(productId: number) {
         , [productId])
 }
 
+export async function deleteAllFromCart(userId: number) {
+    await pool.query(
+        `DELETE FROM cart WHERE user_id = $1;`
+        , [userId])
+}
+
 // Command to increase quantity if product already present
 // UPDATE SET
 //         quantity = cart.quantity + 1 

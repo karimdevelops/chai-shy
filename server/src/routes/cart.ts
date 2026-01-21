@@ -1,4 +1,4 @@
-import { addToCart, deleteFromCart, getCart } from "../db/queries.ts";
+import { addToCart, deleteFromCart, deleteAllFromCart, getCart } from "../db/queries.ts";
 import { Router } from "express";
 const router: Router = Router();
 
@@ -19,6 +19,12 @@ router.post("/add", (req, res) => {
 router.post("/delete", (req, res) => {
     const productId = req.body.productId;
     deleteFromCart(productId);
+    res.sendStatus(204);
+})
+
+router.post("/deleteAll", (req, res) => {
+    const userId = req.body.userId;
+    deleteAllFromCart(userId);
     res.sendStatus(204);
 })
 
