@@ -235,6 +235,10 @@ body {
   writing-mode: vertical-rl;
 }
 
+.about-info {
+  max-width: 26rem;
+}
+
 h1,
 h5 {
   font-family: "Playfair Display", serif;
