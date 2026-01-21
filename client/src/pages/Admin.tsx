@@ -6,7 +6,15 @@ import "../styles/Admin.css";
 
 export default function Admin() {
   const [isForm, setIsForm] = useState(false);
-
+  const salesData = [
+    { day: "Monday", drinks: 10, special: 5, wraps: 8, kids: 6, sweets: 3 },
+    { day: "Tuesday", drinks: 10, special: 5, wraps: 8, kids: 6, sweets: 3 },
+    { day: "Wednesday", drinks: 10, special: 5, wraps: 8, kids: 6, sweets: 3 },
+    { day: "Thursday", drinks: 10, special: 5, wraps: 8, kids: 6, sweets: 3 },
+    { day: "Friday", drinks: 12, special: 4, wraps: 4, kids: 2, sweets: 4 },
+    { day: "Saturday", drinks: 6, special: 11, wraps: 9, kids: 7, sweets: 6 },
+    { day: "Sunday", drinks: 5, special: 15, wraps: 9, kids: 8, sweets: 6 },
+  ];
   function toggleForm() {
     if (isForm === false) setIsForm(true);
     else setIsForm(false);
@@ -17,6 +25,7 @@ export default function Admin() {
       <div className="margint-auto">
         <h2>Sales (In Last 7 days)</h2>
         <BarChart
+          dataset={salesData}
           sx={{
             "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel": {
               fill: "white",
@@ -30,42 +39,16 @@ export default function Admin() {
             },
           }}
           series={[
-            {
-              label: "drinks",
-              data: [2, 5, 3, 4, 4, 2, 5, 3, 4, 4],
-              stack: "menu",
-            },
-            {
-              label: "Something",
-              data: [2, 5, 3, 4, 4, 2, 5, 3, 4, 4],
-              stack: "menu",
-              color: "gray",
-            },
-            {
-              data: [2, 5, 3, 4, 4, 2, 5, 3, 4, 4],
-              stack: "menu",
-            },
-            {
-              data: [2, 5, 3, 4, 4, 2, 5, 3, 4, 4],
-              stack: "menu",
-            },
-            {
-              data: [2, 5, 3, 4, 4, 2, 5, 3, 4, 4],
-              stack: "menu",
-            },
+            { dataKey: "drinks", label: "Drinks", stack: "menu" },
+            { dataKey: "special", label: "Special", stack: "menu" },
+            { dataKey: "wraps", label: "Wraps", stack: "menu" },
+            { dataKey: "kids", label: "Kids", stack: "menu" },
+            { dataKey: "sweets", label: "Sweets", stack: "menu" },
           ]}
           xAxis={[
             {
               id: "barCategories",
-              data: [
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-              ],
+              dataKey: "day",
             },
           ]}
           height={500}
