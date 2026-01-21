@@ -85,6 +85,14 @@ body {
   display: grid;
 }
 
+.grid-1fr-1fr {
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-1fr-1fr-1fr {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 .grid-2fr-1fr {
   grid-template-columns: 2fr 1fr;
 }
