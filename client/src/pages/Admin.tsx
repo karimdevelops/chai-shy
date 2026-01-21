@@ -106,34 +106,34 @@ export default function Admin() {
         </div>
         <h2>Admin Controls</h2>
         <div className="grid grid-1fr-1fr-1fr grid-gap-20">
-          <button className="button-work flex flex-column flex-center flex-gap-20">
+          <button className="button-work flex flex-column flex-center flex-gap-5">
             <img src="./icons/approve.svg" alt="Verify" />
             <div>Aprove</div>
           </button>
-          <button className="button-work flex flex-column flex-center flex-gap-20">
+          <button className="button-work flex flex-column flex-center flex-gap-5">
             <img src="./icons/support.svg" alt="Verify" />
             <div>Support</div>
           </button>
-          <button className="button-work flex flex-column flex-center flex-gap-20">
+          <button className="button-work flex flex-column flex-center flex-gap-5">
             <img src="./icons/history.svg" alt="Verify" />
             <div>History</div>
           </button>
           <button
-            className="button-work flex flex-column flex-center flex-gap-20"
+            className="button-work flex flex-column flex-center flex-gap-5"
             onClick={toggleForm}
           >
             <img src="./icons/add.svg" alt="Add food" />
             <div>Add</div>
           </button>
           <button
-            className="button-work flex flex-column flex-center flex-gap-20"
+            className="button-work flex flex-column flex-center flex-gap-5"
             onClick={toggleForm}
           >
             <img src="./icons/edit.svg" alt="Add food" />
             <div>Edit</div>
           </button>
           <button
-            className="button-work flex flex-column flex-center flex-gap-20"
+            className="button-work flex flex-column flex-center flex-gap-5"
             onClick={toggleForm}
           >
             <img src="./icons/delete.svg" alt="Add food" />
