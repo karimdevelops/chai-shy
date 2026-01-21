@@ -97,6 +97,11 @@ body {
   grid-template-columns: 2fr 1fr;
 }
 
+.grid-center {
+  align-items: center;
+  justify-items: center;
+}
+
 .grid-gap-20 {
   gap: 20px;
 }

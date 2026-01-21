@@ -6,3 +6,25 @@
     border-radius: 20px;
     padding: 1rem;
 }
+
+.stats {
+    background-color: var(--secondary-bg-color);
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.stats-products {
+    background-color: rgb(0, 128, 89);
+}
+
+.stats-sales {
+    background-color: rgb(160, 0, 0);
+}
+
+.stats-orders {
+    background-color: rgb(158, 103, 0);
+}
+
+.stats-users {
+    background-color: rgb(0, 87, 138);
+}

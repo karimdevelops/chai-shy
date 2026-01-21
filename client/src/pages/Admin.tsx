@@ -14,7 +14,8 @@ export default function Admin() {
 
   return (
     <div className="grid grid-2fr-1fr">
-      <div>
+      <div className="margint-auto">
+        <h2>Sales (In Last 7 days)</h2>
         <BarChart
           sx={{
             "& .MuiChartsAxis-tickContainer .MuiChartsAxis-tickLabel": {
@@ -47,65 +48,76 @@ export default function Admin() {
               ],
             },
           ]}
-          height={500}
-          width={500}
+          height={600}
+          width={700}
         />
       </div>
-      <div className="flex flex-column flex-gap-50">
+      <div className="flex flex-column flex-gap-20">
+        <h2>Statistics</h2>
         <div className="grid grid-1fr-1fr grid-gap-20">
-          <div>
-            <h3>Total Sales</h3>
+          <div className="stats stats-products">
+            <div className="flex flex-items-center flex-gap-5">
+              <img src="/icons/product.svg" alt="product" />
+              <h3>Products</h3>
+            </div>
             <h4>$55.9</h4>
           </div>
-          <div>
-            <h3>Total Sales</h3>
+          <div className="stats stats-sales">
+            <div className="flex flex-items-center flex-gap-5">
+              <img src="/icons/sales.svg" alt="product" />
+              <h3>Sales</h3>
+            </div>
             <h4>$55.9</h4>
           </div>
-          <div>
-            <h3>Total Sales</h3>
+          <div className="stats stats-orders">
+            <div className="flex flex-items-center flex-gap-5">
+              <img src="/icons/orders.svg" alt="product" />
+              <h3>Orders</h3>
+            </div>
             <h4>$55.9</h4>
           </div>
-          <div>
-            <h3>Total Sales</h3>
-            <h4>$55.9</h4>
+          <div className="stats stats-users">
+            <div className="flex flex-items-center flex-gap-5">
+              <img src="/icons/users.svg" alt="product" />
+              <h3>Users</h3>
+            </div>
+            <h4>$55.5</h4>
           </div>
         </div>
+        <h2>Admin Controls</h2>
         <div className="grid grid-1fr-1fr-1fr grid-gap-20">
           <button className="button-work flex flex-column flex-center flex-gap-20">
             <img src="./icons/approve.svg" alt="Verify" />
-            <div>Aprove Staff</div>
+            <div>Aprove</div>
           </button>
-          <Link
-            className="button-work flex flex-column flex-center flex-gap-20"
-            to="/support-chat"
-          >
-            <img src="./icons/support.svg" alt="Support" />
-            <div>Support Chat</div>
-          </Link>
           <button className="button-work flex flex-column flex-center flex-gap-20">
-            <img src="./icons/approve.svg" alt="Verify" />
-            <div>Order History</div>
+            <img src="./icons/support.svg" alt="Verify" />
+            <div>Support</div>
+          </button>
+          <button className="button-work flex flex-column flex-center flex-gap-20">
+            <img src="./icons/history.svg" alt="Verify" />
+            <div>History</div>
           </button>
           <button
             className="button-work flex flex-column flex-center flex-gap-20"
             onClick={toggleForm}
           >
             <img src="./icons/add.svg" alt="Add food" />
-            <div>Add Food</div>
+            <div>Add Product</div>
           </button>
           <button
             className="button-work flex flex-column flex-center flex-gap-20"
             onClick={toggleForm}
           >
-            <img src="./icons/add.svg" alt="Add food" />
-            <div>Add Food</div>
+            <img src="./icons/edit.svg" alt="Add food" />
+            <div>Edit Product</div>
           </button>
           <button
             className="button-work flex flex-column flex-center flex-gap-20"
             onClick={toggleForm}
           >
-            <img src="./icons/add.svg" alt="Add food" />
-            <div>Add Food</div>
+            <img src="./icons/delete.svg" alt="Add food" />
+            <div>Delete Product</div>
           </button>
 
           {isForm ? <AddForm /> : null}
