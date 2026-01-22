@@ -124,7 +124,11 @@ export default function Cart() {
         </div>
         <div className="flex flex-column flex-gap-20 margint-auto padding-2">
           <h3>Subtotal: ${getCartSubTotal(cart)}</h3>
-          <Link className="link-theme link-default" to="/checkout">
+          <Link
+            className="link-theme link-default"
+            to="/checkout"
+            onClick={() => setActiveCart(false)}
+          >
             Checkout
           </Link>
         </div>
