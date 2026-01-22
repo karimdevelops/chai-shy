@@ -7,13 +7,13 @@ const router: Router = Router();
 router.post("/add", (req, res) => {
     const userId = req.body.userId;
     const cart = req.body.cart;
-
+    console.log(cart);
     const cartProducts: Products[] = cart.map((product: Product) => ({
         user_id: userId,
-        menu_id: product.id,
+        menu_id: product.product_id,
         quantity: product.quantity
     }));
-
+    console.log(cartProducts);
     addToCart(cartProducts);
     res.sendStatus(201);
 })

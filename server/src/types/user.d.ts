@@ -9,7 +9,7 @@ export interface IUser {
 }
 
 export interface Product {
-    id: number,
+    product_id: number,
     quantity: number
 }
 
