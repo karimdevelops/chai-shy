@@ -46,8 +46,8 @@
 .cards {
     display: grid;
     align-items: start;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 50px 100px;
 }
 
 .card {

@@ -40,6 +40,20 @@ CREATE TABLE IF NOT EXISTS cart (
     quantity INTEGER DEFAULT 1,
     UNIQUE (user_id, menu_id)
 );
+
+CREATE TABLE IF NOT EXISTS orders (
+    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    order_item INTEGER REFERENCES orders
+    total INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS order_item (
+    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    order_id INTEGER REFERENCES orders(id)
+    menu_id INTEGER REFERENCES menu(id)
+    quantity INTEGER DEFAULT 1,
+    UNIQUE (order_id, menu_id)
+);
 `
 
 async function main() {
