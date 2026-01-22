@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SignupRouteImport } from './routes/signup'
+import { Route as OrdersRouteImport } from './routes/orders'
 import { Route as MenuRouteImport } from './routes/menu'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as CheckoutRouteImport } from './routes/checkout'
@@ -21,6 +22,11 @@ import { Route as MenuCatRouteImport } from './routes/menu.$cat'
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
   path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrdersRoute = OrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MenuRoute = MenuRouteImport.update({
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/checkout': typeof CheckoutRoute
   '/login': typeof LoginRoute
   '/menu': typeof MenuRouteWithChildren
+  '/orders': typeof OrdersRoute
   '/signup': typeof SignupRoute
   '/menu/$cat': typeof MenuCatRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/checkout': typeof CheckoutRoute
   '/login': typeof LoginRoute
   '/menu': typeof MenuRouteWithChildren
+  '/orders': typeof OrdersRoute
   '/signup': typeof SignupRoute
   '/menu/$cat': typeof MenuCatRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/checkout': typeof CheckoutRoute
   '/login': typeof LoginRoute
   '/menu': typeof MenuRouteWithChildren
+  '/orders': typeof OrdersRoute
   '/signup': typeof SignupRoute
   '/menu/$cat': typeof MenuCatRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/checkout'
     | '/login'
     | '/menu'
+    | '/orders'
     | '/signup'
     | '/menu/$cat'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/checkout'
     | '/login'
     | '/menu'
+    | '/orders'
     | '/signup'
     | '/menu/$cat'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/checkout'
     | '/login'
     | '/menu'
+    | '/orders'
     | '/signup'
     | '/menu/$cat'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   CheckoutRoute: typeof CheckoutRoute
   LoginRoute: typeof LoginRoute
   MenuRoute: typeof MenuRouteWithChildren
+  OrdersRoute: typeof OrdersRoute
   SignupRoute: typeof SignupRoute
 }
 
@@ -140,6 +153,13 @@ declare module '@tanstack/react-router' {
       path: '/signup'
       fullPath: '/signup'
       preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orders': {
+      id: '/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof OrdersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/menu': {
@@ -211,6 +231,7 @@ const rootRouteChildren: RootRouteChildren = {
   CheckoutRoute: CheckoutRoute,
   LoginRoute: LoginRoute,
   MenuRoute: MenuRouteWithChildren,
+  OrdersRoute: OrdersRoute,
   SignupRoute: SignupRoute,
 }
 export const routeTree = rootRouteImport

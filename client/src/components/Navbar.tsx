@@ -87,8 +87,12 @@ export default function Navbar() {
                 <img src="/icons/profile.svg" alt="profile" />
                 Profile
               </Link>
+              <Link className="link-default flex flex-gap-5" to="/orders">
+                <img src="/icons/history2.svg" alt="orders history" />
+                Orders
+              </Link>
               <Link className="link-default flex flex-gap-5" to="/support">
-                <img src="/icons/support.svg" alt="profile" />
+                <img src="/icons/support2.svg" alt="profile" />
                 Support
               </Link>
               <form action="/api/auth/logout" method="post">

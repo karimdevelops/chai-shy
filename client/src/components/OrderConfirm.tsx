@@ -92,7 +92,7 @@ export default function OrderConfirm({ id }) {
         <path fill="#dcca87" d="M0 0h24v24H0z" mask="url(#SVG5AkzhcyZ)"></path>
       </svg>
       <p>Thank you for ordering from Chai Shy.</p>
-      <Link to="/" className="btn theme-btn">
+      <Link to="/" className="link-theme link-default">
         Return
       </Link>
     </div>
