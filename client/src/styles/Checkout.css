@@ -50,8 +50,8 @@
 
 .confirm {
     position: fixed;
-    top: 30%;
-    left: 40%;
+    top: 20%;
+    left: 35%;
     background-color: var(--secondary-bg-color);
     padding: 2rem;
     border-radius: 20px;
