@@ -95,10 +95,18 @@ export async function deleteFromCart(productId: number) {
         , [productId])
 }
 
-export async function deleteAllFromCart(userId: number) {
+export async function deleteAllFromCart(userId: number, orderId: number) {
     await pool.query(
-        `DELETE FROM cart WHERE user_id = $1;`
-        , [userId])
+        `WITH cart_rows AS (
+        DELETE FROM cart WHERE user_id = $1
+        RETURNING *
+        )
+        INSERT INTO 
+        order_items (order_id, menu_id, quantity)
+        SELECT $2, menu_id, quantity
+        FROM cart_rows
+        ;`
+        , [userId, orderId]);
 }
 
 // Command to increase quantity if product already present

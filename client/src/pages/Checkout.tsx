@@ -23,18 +23,24 @@ export default function Checkout() {
     fetchCartTotal();
   }, []);
 
-  async function setCartEmpty() {
-    fetch("/api/cart/deleteAll", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userId: user.id,
-      }),
-    });
-    setCart([]);
-  }
+  useEffect(() => {
+    if (orderId) {
+      async function setCartEmpty() {
+        fetch("/api/cart/deleteAll", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: user.id,
+            orderId,
+          }),
+        });
+        setCart([]);
+      }
+      setCartEmpty();
+    }
+  }, [orderId]);
 
   async function getAddOrderId() {
     const res = await fetch("/api/order/add", {
@@ -48,6 +54,10 @@ export default function Checkout() {
     });
     const data = await res.json();
     setOrderId(data[0].id);
+  }
+
+  async function checkout() {
+    getAddOrderId();
   }
   return (
     <>
@@ -130,8 +140,7 @@ export default function Checkout() {
           <button
             className="theme-btn btn"
             onClick={() => {
-              setCartEmpty();
-              getAddOrderId();
+              checkout();
               setOrderConfirm(true);
             }}
           >

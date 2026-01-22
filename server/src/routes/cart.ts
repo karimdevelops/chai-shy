@@ -26,7 +26,8 @@ router.post("/delete", (req, res) => {
 
 router.post("/deleteAll", (req, res) => {
     const userId = req.body.userId;
-    deleteAllFromCart(userId);
+    const orderId = req.body.orderId;
+    deleteAllFromCart(userId, orderId);
     res.sendStatus(204);
 })
 

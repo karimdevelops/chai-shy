@@ -8,11 +8,7 @@ export default function OrderConfirm({ id }) {
     <div className="confirm flex flex-column flex-center flex-gap-50">
       <div className="flex flex-column flex-center flex-gap-20">
         <h1>Order Placed</h1>
-        {orderId ? (
-          <h3>Id: #{String(orderId).padStart(5, "0")}</h3>
-        ) : (
-          <img src="/icons/cart.svg" />
-        )}
+        {orderId ? <h3>id: #{String(orderId).padStart(5, "0")}</h3> : null}
       </div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +91,7 @@ export default function OrderConfirm({ id }) {
         </g>
         <path fill="#dcca87" d="M0 0h24v24H0z" mask="url(#SVG5AkzhcyZ)"></path>
       </svg>
-      <p>Thank you ordering from Chai Shy.</p>
+      <p>Thank you for ordering from Chai Shy.</p>
       <Link to="/" className="btn theme-btn">
         Return
       </Link>
