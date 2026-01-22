@@ -118,23 +118,16 @@ export async function getCart(userId: number) {
 
 export async function addOrder(userId: number) {
     const { rows } = await pool.query(`
-        SELECT cart.id, cart.quantity, menu.id AS product_id, menu.name, menu.price
-        FROM cart
-        INNER JOIN menu
-        ON cart.user_id = ${userId} AND cart.menu_id = menu.id
+        INSERT INTO 
+        orders (user_id)
+        VALUES ($1)
+        RETURNING id
         ;
-    `);
+    `, [userId]);
     return rows;
 }
 
 export async function addToOrderItems(userId: number) {
-    const { rows } = await pool.query(`
-        SELECT cart.id, cart.quantity, menu.id AS product_id, menu.name, menu.price
-        FROM cart
-        INNER JOIN menu
-        ON cart.user_id = ${userId} AND cart.menu_id = menu.id
-        ;
-    `);
-    return rows;
+
 }
 

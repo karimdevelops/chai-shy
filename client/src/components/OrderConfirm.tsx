@@ -1,9 +1,19 @@
 import { Link } from "@tanstack/react-router";
+import { useState } from "react";
 
-export default function OrderConfirm() {
+export default function OrderConfirm({ id }) {
+  const orderId = id;
+
   return (
     <div className="confirm flex flex-column flex-center flex-gap-50">
-      <h2>Your order has been placed!</h2>
+      <div className="flex flex-column flex-center flex-gap-20">
+        <h1>Order Placed</h1>
+        {orderId ? (
+          <h3>Id: #{String(orderId).padStart(5, "0")}</h3>
+        ) : (
+          <img src="/icons/cart.svg" />
+        )}
+      </div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={96}
@@ -85,6 +95,7 @@ export default function OrderConfirm() {
         </g>
         <path fill="#dcca87" d="M0 0h24v24H0z" mask="url(#SVG5AkzhcyZ)"></path>
       </svg>
+      <p>Thank you ordering from Chai Shy.</p>
       <Link to="/" className="btn theme-btn">
         Return
       </Link>

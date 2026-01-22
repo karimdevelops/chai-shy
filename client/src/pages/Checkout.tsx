@@ -14,6 +14,8 @@ export default function Checkout() {
   const user = useContext(UserContext);
   const [orderConfirm, setOrderConfirm] = useState(false);
   const [cartSubTotal, setCartSubTotal] = useState(0);
+  const [orderId, setOrderId] = useState(null);
+
   useEffect(() => {
     async function fetchCartTotal() {
       setCartSubTotal(getCartSubTotal(cart));
@@ -34,6 +36,19 @@ export default function Checkout() {
     setCart([]);
   }
 
+  async function getAddOrderId() {
+    const res = await fetch("/api/order/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: user.id,
+      }),
+    });
+    const data = await res.json();
+    setOrderId(data[0].id);
+  }
   return (
     <>
       <div
@@ -116,6 +131,7 @@ export default function Checkout() {
             className="theme-btn btn"
             onClick={() => {
               setCartEmpty();
+              getAddOrderId();
               setOrderConfirm(true);
             }}
           >
@@ -123,7 +139,7 @@ export default function Checkout() {
           </button>
         </div>
       </div>
-      {orderConfirm ? <OrderConfirm /> : null}
+      {orderConfirm ? <OrderConfirm id={orderId} /> : null}
     </>
   );
 }
