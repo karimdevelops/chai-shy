@@ -43,14 +43,14 @@ CREATE TABLE IF NOT EXISTS cart (
 
 CREATE TABLE IF NOT EXISTS orders (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    order_item INTEGER REFERENCES orders
-    total INTEGER
+    user_id INTEGER REFERENCES users(id),
+    date DATE DEFAULT CURRENT_DATE
 );
 
-CREATE TABLE IF NOT EXISTS order_item (
+CREATE TABLE IF NOT EXISTS order_items (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    order_id INTEGER REFERENCES orders(id)
-    menu_id INTEGER REFERENCES menu(id)
+    order_id INTEGER REFERENCES orders(id),
+    menu_id INTEGER REFERENCES menu(id),
     quantity INTEGER DEFAULT 1,
     UNIQUE (order_id, menu_id)
 );

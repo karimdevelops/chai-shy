@@ -116,3 +116,25 @@ export async function getCart(userId: number) {
     return rows;
 }
 
+export async function addOrder(userId: number) {
+    const { rows } = await pool.query(`
+        SELECT cart.id, cart.quantity, menu.id AS product_id, menu.name, menu.price
+        FROM cart
+        INNER JOIN menu
+        ON cart.user_id = ${userId} AND cart.menu_id = menu.id
+        ;
+    `);
+    return rows;
+}
+
+export async function addToOrderItems(userId: number) {
+    const { rows } = await pool.query(`
+        SELECT cart.id, cart.quantity, menu.id AS product_id, menu.name, menu.price
+        FROM cart
+        INNER JOIN menu
+        ON cart.user_id = ${userId} AND cart.menu_id = menu.id
+        ;
+    `);
+    return rows;
+}
+
