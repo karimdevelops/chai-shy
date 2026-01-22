@@ -1,15 +1,17 @@
 import { addToCart, deleteFromCart, deleteAllFromCart, getCart } from "../db/queries.ts";
 import { Router } from "express";
+import type { Product, Products } from "../types/user.js";
+
 const router: Router = Router();
 
 router.post("/add", (req, res) => {
     const userId = req.body.userId;
     const cart = req.body.cart;
 
-    const cartProducts = cart.map((x) => ({
+    const cartProducts: Products[] = cart.map((product: Product) => ({
         user_id: userId,
-        menu_id: x.product_id,
-        quantity: x.quantity
+        menu_id: product.id,
+        quantity: product.quantity
     }));
 
     addToCart(cartProducts);

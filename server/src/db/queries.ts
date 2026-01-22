@@ -1,5 +1,6 @@
 import pool from "./pool.ts";
 import type { IUser } from "../types/user.ts";
+import type { Products } from "../types/user.js";
 
 export async function getUser(email: string) {
     try {
@@ -74,7 +75,7 @@ export async function getMenuCats() {
     return rows;
 }
 
-export async function addToCart(cartProducts) {
+export async function addToCart(cartProducts: Products[]) {
     await pool.query(`
         INSERT INTO 
         cart (user_id, menu_id, quantity)

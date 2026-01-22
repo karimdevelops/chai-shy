@@ -7,3 +7,14 @@ export interface IUser {
     is_admin: boolean,
     is_staff: boolean
 }
+
+export interface Product {
+    id: number,
+    quantity: number
+}
+
+export interface Products {
+    user_id: number,
+    menu_id: number,
+    quantity: number
+}
