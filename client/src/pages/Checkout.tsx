@@ -150,7 +150,7 @@ export default function Checkout() {
           </button>
         </div>
       </div>
-      {orderConfirm ? <OrderConfirm id={orderId} /> : null}
+      {orderConfirm && orderId ? <OrderConfirm id={orderId} /> : null}
     </>
   );
 }

@@ -1,15 +1,20 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import { useNavigate } from "@tanstack/react-router";
 import CartContext from "../contexts/CartContext";
+import { type Product } from "../hooks/useMenu";
 
-export default function MenuProduct({ product }) {
+interface Props {
+  product: Product;
+}
+
+export default function MenuProduct({ product }: Props) {
   const user = useContext(UserContext);
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext)!;
   const [isFlip, setIsFlip] = useState(false);
   const navigate = useNavigate();
 
-  function addToCart(e: React.MouseEvent<HTMLButtonElement>, product) {
+  function addToCart(e: React.MouseEvent<HTMLButtonElement>, product: Product) {
     e.stopPropagation();
     if (user != "empty") {
       const oldProduct = cart.find((x) => x.product_id == product.id);

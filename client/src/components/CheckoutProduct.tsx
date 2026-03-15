@@ -1,9 +1,15 @@
-export default function CheckoutProduct({ product }) {
+import { type CartItem } from "../contexts/CartContext";
+
+interface Props {
+  product: CartItem;
+}
+
+export default function CheckoutProduct({ product }: Props) {
   return (
-    <div className="checkout-product flex flex-gap-20" key={product.id}>
+    <div className="checkout-product flex flex-gap-20" key={product.product_id}>
       <img
         src={`/api/uploads/${product.name.toLowerCase().replaceAll(" ", "")}.avif`}
-        alt=""
+        alt="product"
         height={85}
         width={"auto"}
       />

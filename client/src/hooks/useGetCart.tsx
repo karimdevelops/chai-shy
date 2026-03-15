@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import UserContext from "../contexts/UserContext";
 import CartContext from "../contexts/CartContext";
 
 export default function useGetCart() {
   const user = useContext(UserContext);
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext)!;
 
   useEffect(() => {
     async function fetchUser() {

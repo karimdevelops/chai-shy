@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { BarChart } from "@mui/x-charts";
 import AddForm from "../components/AddForm";
 import "../styles/Admin.css";

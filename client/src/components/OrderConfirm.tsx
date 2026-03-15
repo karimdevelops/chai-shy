@@ -1,7 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
 
-export default function OrderConfirm({ id }) {
+interface Props {
+  id: number;
+}
+
+export default function OrderConfirm({ id }: Props) {
   const orderId = id;
 
   return (

@@ -1,13 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 
-type Product = {
+export type Product = {
   id: number;
   name: string;
   description: string;
   price: number;
 };
 
-export async function fetchMenu(setData, menuId: number) {
+export async function fetchMenu(
+  setData: Dispatch<SetStateAction<Product[]>>,
+  menuId: number,
+) {
   const response = await fetch("/api/menu/get", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
