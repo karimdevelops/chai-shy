@@ -1,5 +1,5 @@
-import "dotenv/config"
-import { Client } from "pg"
+import "dotenv/config";
+import { Client } from "pg";
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS users (
@@ -54,21 +54,27 @@ CREATE TABLE IF NOT EXISTS order_items (
     quantity INTEGER DEFAULT 1,
     UNIQUE (order_id, menu_id)
 );
-`
+`;
 
 async function main() {
-    console.log("Seeding...");
-    const client = new Client({
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        database: process.env.DB
-    });
+  console.log("Seeding...");
 
-    await client.connect();
-    await client.query(SQL);
-    await client.end();
+  const client =
+    process.env.PROD == "true"
+      ? new Client({
+          connectionString: process.env.DB_STRING,
+        })
+      : new Client({
+          host: process.env.DB_HOST,
+          user: process.env.DB_USER,
+          database: process.env.DB,
+        });
 
-    console.log("Successfully created tables!");
+  await client.connect();
+  await client.query(SQL);
+  await client.end();
+
+  console.log("Successfully created tables!");
 }
 
 main();
