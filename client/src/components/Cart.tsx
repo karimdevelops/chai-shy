@@ -29,7 +29,6 @@ export default function Cart() {
         }),
       });
     }
-    console.log(cart);
     updateCart();
   }, [cart, user]);
 
