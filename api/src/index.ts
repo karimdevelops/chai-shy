@@ -5,13 +5,13 @@ import passport from "passport";
 import session from "express-session";
 import connectPgSimple from "connect-pg-simple";
 
-import authRouter from "./routes/auth.ts";
-import userRouter from "./routes/user.ts";
-import adminRouter from "./routes/admin.ts";
-import menuRouter from "./routes/menu.ts";
-import cartRouter from "./routes/cart.ts";
-import orderRouter from "./routes/order.ts";
-import pool from "./db/pool.ts";
+import authRouter from "./routes/auth.js";
+import userRouter from "./routes/user.js";
+import adminRouter from "./routes/admin.js";
+import menuRouter from "./routes/menu.js";
+import cartRouter from "./routes/cart.js";
+import orderRouter from "./routes/order.js";
+import pool from "./db/pool.js";
 
 const app = express();
 const PgSession = connectPgSimple(session);
