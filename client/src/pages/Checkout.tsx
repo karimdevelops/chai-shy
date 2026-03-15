@@ -8,7 +8,7 @@ import "../styles/Checkout.css";
 import UserContext from "../contexts/UserContext";
 
 export default function Checkout() {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext)!;
   const [shipping, setShipping] = useState(0);
   const [activeId, setActiveId] = useState(0);
   const user = useContext(UserContext);
@@ -18,14 +18,15 @@ export default function Checkout() {
 
   useEffect(() => {
     async function fetchCartTotal() {
-      setCartSubTotal(getCartSubTotal(cart));
+      setCartSubTotal(Number(getCartSubTotal(cart)));
     }
     fetchCartTotal();
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     if (orderId) {
       async function setCartEmpty() {
+        if (user == "empty") return;
         fetch("/api/cart/deleteAll", {
           method: "POST",
           headers: {
@@ -43,6 +44,7 @@ export default function Checkout() {
   }, [orderId]);
 
   async function getAddOrderId() {
+    if (user == "empty") return;
     const res = await fetch("/api/order/add", {
       method: "POST",
       headers: {
@@ -121,7 +123,7 @@ export default function Checkout() {
           <div className="checkout-products">
             {cart != null
               ? cart.map((product) => (
-                  <CheckoutProduct key={product.id} product={product} />
+                  <CheckoutProduct key={product.product_id} product={product} />
                 ))
               : null}
           </div>
