@@ -10,11 +10,18 @@ export default function Login() {
         action="/api/auth/login"
         method="POST"
       >
-        <input name="email" type="text" id="email" placeholder="Email" />
+        <input
+          name="email"
+          type="email"
+          id="email"
+          placeholder="Email"
+          required
+        />
         <input
           name="password"
           type="password"
           id="passwd"
+          required
           placeholder="Password"
         />
         <button className="btn theme-btn">Log in</button>

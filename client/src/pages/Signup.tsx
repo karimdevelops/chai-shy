@@ -12,16 +12,33 @@ export default function Signup() {
         autoComplete="off"
       >
         <div className="flex flex-gap-20">
-          <input name="firstName" type="text" placeholder="First Name" />
-          <input name="lastName" type="text" placeholder="Last Name" />
+          <input
+            name="firstName"
+            type="text"
+            placeholder="First Name"
+            required
+          />
+          <input name="lastName" type="text" placeholder="Last Name" required />
         </div>
-        <input name="email" type="text" id="email" placeholder="Email" />
+        <input
+          name="email"
+          type="email"
+          id="email"
+          placeholder="Email"
+          required
+        />
         <div className="flex flex-gap-20">
-          <input name="password" type="password" placeholder="Password" />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            required
+          />
           <input
             name="confirmPassword"
             type="password"
             placeholder="Confirm Password"
+            required
           />
         </div>
         <button className="btn theme-btn">Signup</button>
