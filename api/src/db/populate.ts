@@ -76,5 +76,4 @@ async function main() {
 
   console.log("Successfully created tables!");
 }
-
-main();
+if (import.meta.url == `file://${process.argv[1]}`) main();
