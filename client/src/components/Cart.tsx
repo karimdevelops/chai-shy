@@ -11,12 +11,13 @@ export default function Cart() {
   const user = useContext(UserContext);
   const location = useLocation();
   const notAllowed = ["/checkout", "/admin"];
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext)!;
   const [activeCart, setActiveCart] = useState(false);
   useGetCart();
 
   useEffect(() => {
     async function updateCart() {
+      if (user == "empty") return;
       fetch("/api/cart/add", {
         method: "POST",
         headers: {
@@ -28,10 +29,11 @@ export default function Cart() {
         }),
       });
     }
+    console.log(cart);
     updateCart();
-  }, [cart]);
+  }, [cart, user]);
 
-  function incrementCart(id) {
+  function incrementCart(id: number) {
     cart.map((x) => {
       if (x.product_id == id) return { ...x, quantity: ++x.quantity };
       return { ...x };
@@ -39,7 +41,7 @@ export default function Cart() {
     setCart([...cart]);
   }
 
-  function decrementCart(id) {
+  function decrementCart(id: number) {
     cart.map((x) => {
       if (x.product_id == id) return { ...x, quantity: --x.quantity };
       return { ...x };

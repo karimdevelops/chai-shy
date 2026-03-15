@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import useGetUser from "../hooks/useGetUser";
 import UserContext from "../contexts/UserContext";
 import Cart from "../components/Cart";
-import CartContext from "../contexts/CartContext";
+import CartContext, { type CartItem } from "../contexts/CartContext";
 import { useState } from "react";
 
 export const Route = createRootRoute({
@@ -13,7 +13,7 @@ export const Route = createRootRoute({
 function RootComponent() {
   const location = useLocation();
   const user = useGetUser();
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<CartItem[]>([]);
 
   if (!user) {
     return <div></div>;
