@@ -18,18 +18,19 @@ const PgSession = connectPgSimple(session);
 const PORT = process.env.PORT;
 const __dirname = import.meta.dirname;
 
-if (!process.env.SECRET)
-    throw new Error("SECRET .env variable not set!");
-app.use(session({
+if (!process.env.SECRET) throw new Error("SECRET .env variable not set!");
+app.use(
+  session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: { maxAge: 5 * 24 * 60 * 60 * 1000 },
     store: new PgSession({
-        createTableIfMissing: true,
-        pool: pool
-    })
-}));
+      createTableIfMissing: true,
+      pool: pool,
+    }),
+  }),
+);
 app.use(passport.authenticate("session"));
 
 app.use(express.urlencoded({ extended: false }));
@@ -43,6 +44,7 @@ app.use("/api/menu", menuRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
 
-app.listen(PORT, () =>
-    console.log(`Listening on port ${PORT}`)
-)
+if (process.env.PROD != "true")
+  app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+
+export default app;
