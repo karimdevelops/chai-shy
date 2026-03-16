@@ -1,6 +1,7 @@
 import "dotenv/config";
 import path from "node:path";
 import express from "express";
+import type { Express } from "express";
 import passport from "passport";
 import session from "express-session";
 import connectPgSimple from "connect-pg-simple";
@@ -13,7 +14,7 @@ import cartRouter from "./routes/cart.js";
 import orderRouter from "./routes/order.js";
 import pool from "./db/pool.js";
 
-const app = express();
+const app: Express = express();
 const PgSession = connectPgSimple(session);
 const PORT = process.env.PORT;
 const __dirname = import.meta.dirname;
