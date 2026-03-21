@@ -81,14 +81,13 @@ This is an example of how to list things you need to use the software and how to
     PORT="SERVER PORT"
    ```
 
-5. Run the server
+5. Run the server and client
 ```sh
+cd api
 pnpm run dev
-```
 
-6. Run the client
-```sh
-pnpm run client
+cd client
+pnpm run dev
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
