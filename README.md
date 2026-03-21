@@ -35,7 +35,7 @@ Bringing back the traditional drink embraced in many cultures: chai (tea). This 
 
 Here's why: 
 
-- A satisfying user experience because of fun user experience.
+- A satisfying user experience because of fun animations.
 - From managing profile to viewing order history.
 - An admin dashboard with live stats.
 - Live custom support chat.
@@ -46,7 +46,7 @@ While some features may look ordinary, they are not until you check them out!
 
 ### Built With
 
-Following tools for building this project:
+Following tools were used for building this project:
 
 * [![Typescript][TS]][TS-url]
 * [![React][React.js]][React-url]
@@ -56,6 +56,49 @@ Following tools for building this project:
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Getting Started
+
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+* pnpm
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   https://github.com/karimdevelops/chai-shy/
+   ```
+3. Install packages
+   ```sh
+   pnpm install
+   ```
+4. Enter necessary variables in .env
+   ```env
+    # client/.env
+    PROXY_TARGET="SERVER LINK"
+
+    # api/.env
+    SECRET="SERVER SECRET"
+    PORT="SERVER PORT"
+   ```
+
+5. Run the server
+```sh
+pnpm run dev
+```
+
+6. Run the client
+```sh
+pnpm run client
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://react.dev/
