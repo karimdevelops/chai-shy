@@ -27,11 +27,11 @@
   </ol>
 </details>
 
-## About Chai Shy
+## About The Project
 
 ![home](./images/home.png)
 
-Bringing back the traditional drink embraced in many cultures: chai (tea). This restaurant project is not just any ordinary site. It has many features combined with the perfect drink.
+Bringing back the traditional drink embraced in many cultures: chai (tea). This restaurant project is not just any ordinary site. It has many features combined with the perfect drink listed below. Chai Shy not only has the typical tea flavor but it offers multiple flavors and also a variety of other food items. 
 
 Here's why: 
 
@@ -45,6 +45,8 @@ While some features may look ordinary, they are not until you check them out!
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
+
+Following tools for building this project:
 
 * [![Typescript][TS]][TS-url]
 * [![React][React.js]][React-url]
