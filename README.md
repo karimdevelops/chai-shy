@@ -72,7 +72,7 @@ This is an example of how to list things you need to use the software and how to
    pnpm install
    ```
 4. Enter necessary variables in .env
-   ```env
+    ```env
     # client/.env
     PROXY_TARGET="SERVER LINK"
 
@@ -82,13 +82,13 @@ This is an example of how to list things you need to use the software and how to
    ```
 
 5. Run the server and client
-```sh
-cd api
-pnpm run dev
+    ```sh
+    cd api
+    pnpm run dev
 
-cd client
-pnpm run dev
-```
+    cd client
+    pnpm run dev
+    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
