@@ -9,18 +9,18 @@ export default function Home() {
             <h5 className="font-playfair text-sm font-bold md:text-base">
               Chase The Classic Flavour
             </h5>
-            <h1 className="font-playfair text-primary text-5xl leading-normal font-bold md:text-6xl">
+            <h1 className="font-playfair text-app-primary text-5xl leading-normal font-bold md:text-6xl">
               The Key to <br /> Fine Chuski Exp.
             </h1>
           </div>
-          <p className="text-info text-base">
+          <p className="text-app-info text-base">
             <strong>Chai Shy.</strong> One of the finest places in some place
             where you can get the desi tea for less than $5, even though the
             taste is worth a million times more! <i>slurps...</i>
           </p>
           <Link
             to="/menu/"
-            className="font-playfair text-app-background bg-primary max-w-fit px-6 py-4 text-lg duration-200 hover:translate-y-1"
+            className="font-playfair text-app-background bg-app-primary max-w-fit px-6 py-4 text-lg duration-200 hover:translate-y-1"
           >
             Explore Menu
           </Link>
