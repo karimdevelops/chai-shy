@@ -1,8 +1,8 @@
+import { Link, useLocation } from "@tanstack/react-router";
 import { useContext, useEffect, useState } from "react";
-import useGetCart from "../hooks/useGetCart";
 import CartContext from "../contexts/CartContext";
 import UserContext from "../contexts/UserContext";
-import { Link, useLocation } from "@tanstack/react-router";
+import useGetCart from "../hooks/useGetCart";
 import { getCartSubTotal } from "../utils/calc";
 
 import "../styles/Cart.css";
@@ -64,7 +64,7 @@ export default function Cart() {
 
   return (
     <>
-      {!notAllowed.includes(location.pathname) ? (
+      {!notAllowed.includes(location.pathname) && user != "empty" ? (
         <div className="cart-toggle" onClick={() => setActiveCart(true)}>
           <span className="cart-count">
             {cart ? cart.reduce((total, item) => total + item.quantity, 0) : 0}
