@@ -3,7 +3,7 @@ import "../styles/Auth.css";
 
 export default function Signup() {
   return (
-    <div className="flex flex-column flex-center flex-gap-20">
+    <div className="flex flex-col items-center justify-center gap-5">
       <h1 className="auth-heading">Signup</h1>
       <form
         className="flex flex-column flex-gap-30"
@@ -11,7 +11,7 @@ export default function Signup() {
         method="POST"
         autoComplete="off"
       >
-        <div className="flex flex-gap-20">
+        <div className="flex flex-col md:flex-row gap-5">
           <input
             name="firstName"
             type="text"
@@ -27,7 +27,7 @@ export default function Signup() {
           placeholder="Email"
           required
         />
-        <div className="flex flex-gap-20">
+        <div className="flex flex-col md:flex-row gap-5">
           <input
             name="password"
             type="password"
