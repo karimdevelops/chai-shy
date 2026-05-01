@@ -25,6 +25,7 @@ export default function Signup() {
           type="email"
           id="email"
           placeholder="Email"
+          autoComplete="email"
           required
         />
         <div className="flex flex-col md:flex-row gap-5">
@@ -32,6 +33,7 @@ export default function Signup() {
             name="password"
             type="password"
             placeholder="Password"
+            autoComplete="new-password"
             required
           />
           <input
