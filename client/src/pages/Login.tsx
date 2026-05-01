@@ -3,8 +3,8 @@ import "../styles/Auth.css";
 
 export default function Login() {
   return (
-    <div className="flex flex-column flex-center flex-gap-20">
-      <h1 className="auth-heading">Welcome back</h1>
+    <div className="flex flex-col justify-between items-center gap-8">
+      <h1 className="text-3xl md:text-5xl">Welcome back</h1>
       <form
         className="flex flex-column flex-gap-30"
         action="/api/auth/login"

@@ -3,8 +3,8 @@ import "../styles/Auth.css";
 
 export default function Signup() {
   return (
-    <div className="flex flex-col items-center justify-center gap-5">
-      <h1 className="auth-heading">Signup</h1>
+    <div className="flex flex-col items-center justify-center gap-8">
+      <h1 className="text-3xl md:text-5xl">Signup</h1>
       <form
         className="flex flex-column flex-gap-30"
         action="/api/auth/signup"
