@@ -20,7 +20,7 @@ export default function Home() {
           </p>
           <Link
             to="/menu/"
-            className="font-playfair text-app-background bg-primary max-w-fit px-6 py-4 text-lg"
+            className="font-playfair text-app-background bg-primary max-w-fit px-6 py-4 text-lg duration-200 hover:translate-y-1"
           >
             Explore Menu
           </Link>
