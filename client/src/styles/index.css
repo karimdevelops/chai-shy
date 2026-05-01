@@ -49,11 +49,9 @@
 body {
   font-family: "Inter";
   font-size: 1.15rem;
-  line-height: 1.5;
 }
 
-.flex {
-  display: flex;
+div {
   animation: fade-in 0.5s ease-in-out;
 }
 
@@ -256,15 +254,6 @@ body {
   text-align: center;
 }
 
-h1,
-h5 {
-  font-family: "Playfair Display", serif;
-}
-
-h1 {
-  font-size: 3.5rem;
-  color: var(--secondary-color);
-}
 
 @keyframes fade-in {
   from {
