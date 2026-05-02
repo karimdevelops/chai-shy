@@ -73,10 +73,12 @@ export default function Cart() {
         </div>
       ) : null}
       <div
-        className={`container-cart flex flex-column flex-gap-20 ${activeCart ? "show-cart" : "hide-cart"}`}
+        className={`container-cart flex-column flex-gap-20 flex ${activeCart ? "show-cart" : "hide-cart"}`}
       >
-        <div className="flex flex-items-center">
-          <h2 className="center-text cart-heading">Shopping Cart</h2>
+        <div className="flex-items-center flex">
+          <h2 className="font-playfair p-2 text-center text-2xl font-bold">
+            Shopping Cart
+          </h2>
           <div className="marginl-auto" onClick={() => setActiveCart(false)}>
             <img src="/icons/close.svg" alt="close" />
           </div>
@@ -85,7 +87,7 @@ export default function Cart() {
           {cart
             ? cart.map((item) => (
                 <div
-                  className="cart-item flex flex-items-center flex-gap-5"
+                  className="cart-item flex-items-center flex-gap-5 flex"
                   key={item.product_id}
                 >
                   <img
@@ -99,7 +101,7 @@ export default function Cart() {
                     <p>${item.price}</p>
                   </div>
                   <div className="marginl-auto">
-                    <div className="flex flex-column flex-sp-between">
+                    <div className="flex-column flex-sp-between flex">
                       <div className="marginl-auto">
                         <img
                           src="/icons/plus.svg"
@@ -123,7 +125,7 @@ export default function Cart() {
               ))
             : null}
         </div>
-        <div className="flex flex-column flex-gap-20 margint-auto padding-2">
+        <div className="flex-column flex-gap-20 margint-auto padding-2 flex">
           <h3>Subtotal: ${getCartSubTotal(cart)}</h3>
           <Link
             className="link-theme link-default"

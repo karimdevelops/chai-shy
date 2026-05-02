@@ -1,6 +1,6 @@
 import menuSvg from "@/assets/menu.svg";
 import { Link } from "@tanstack/react-router";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import UserContext from "../contexts/UserContext";
 import "../styles/Navbar.css";
 import {

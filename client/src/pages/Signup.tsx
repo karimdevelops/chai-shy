@@ -54,17 +54,21 @@ export default function Signup() {
             required={true}
           />
         </div>
-        <button className="btn theme-btn">Signup</button>
+        <button className="bg-app-primary text-app-background rounded-full p-2 font-bold">
+          Signup
+        </button>
         <p className="auth-choice">or</p>
-        <button className="btn transparent-btn icon-btn flex-center flex">
+        <button className="text-app-primary border-app-primary flex justify-center gap-2 self-center rounded-full border px-5 py-2">
           <img src="/google.svg" alt="google" />
           Continue with Google
         </button>
       </form>
       <div className="flex-center flex-column flex-gap-20 flex">
-        <p className="info-text">Already have an account?</p>
+        <p className="info-text">Don't have an account?</p>
         <Link to="/login">
-          <button className="btn transparent-btn">Log in</button>
+          <button className="text-app-primary border-app-primary flex justify-center gap-2 rounded-full border px-5 py-2">
+            Login
+          </button>
         </Link>
       </div>
     </div>
