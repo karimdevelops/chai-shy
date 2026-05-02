@@ -18,14 +18,14 @@ export default function Navbar() {
   const [dropdown, setDropdown] = useState(false);
 
   return (
-    <div className="flex-items-center flex py-3">
+    <div className="flex items-center pb-5 md:pb-1">
       <nav>
-        <ul className="navbar justify-between items-center md:justify-center gap-5 flex min-w-full">
+        <ul className="font-montserrat bg-app-secondary py-3 md:py-4 px-8 text-base justify-between items-center md:justify-center gap-5 flex max-w-fit rounded-xl z-2 shadow-[0_5px_5px_var(--uplift-color)]">
           <li>
             <Link
               to="/"
               activeProps={{ className: "link-active" }}
-              className="link-nav logo"
+              className="font-playfair text-xl md:text-2xl"
             >
               Chai Shy
             </Link>
@@ -34,26 +34,17 @@ export default function Navbar() {
             <Link
               to="/menu/drinks-1"
               activeProps={{ className: "link-active" }}
-              className="link-nav"
             >
               Menu
             </Link>
           </li>
           <li className="hidden md:block">
-            <Link
-              to="/about"
-              activeProps={{ className: "link-active" }}
-              className="link-nav"
-            >
+            <Link to="/about" activeProps={{ className: "link-active" }}>
               About
             </Link>
           </li>
           <li className="hidden md:block">
-            <Link
-              to="/book"
-              activeProps={{ className: "link-active" }}
-              className="link-nav"
-            >
+            <Link to="/book" activeProps={{ className: "link-active" }}>
               Book a table
             </Link>
           </li>
@@ -61,7 +52,7 @@ export default function Navbar() {
       </nav>
       <nav className="marginl-auto hidden md:block">
         {user == "empty" ? (
-          <ul className="navbar flex-center flex-gap-20 flex">
+          <ul className="font-montserrat bg-app-secondary py-3 md:py-4 px-8 text-base justify-between items-center md:justify-center gap-5 flex max-w-fit rounded-xl">
             <li>
               <Link
                 to="/login"
@@ -117,8 +108,8 @@ export default function Navbar() {
       </nav>
       <nav className="ml-auto md:hidden">
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <img src={menuSvg} className="h-10 active:rotate-90 duration-300" />
+          <DropdownMenuTrigger className="active:rotate-90 duration-300">
+            <img src={menuSvg} className="h-10" />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuGroup>

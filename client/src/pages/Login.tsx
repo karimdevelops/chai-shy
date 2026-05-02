@@ -1,28 +1,29 @@
 import { Link } from "@tanstack/react-router";
+import FormInput from "../components/FormInput";
 import "../styles/Auth.css";
 
 export default function Login() {
   return (
     <div className="flex flex-col justify-between items-center gap-8">
-      <h1 className="text-3xl md:text-5xl">Welcome back</h1>
+      <h1 className="text-3xl md:text-4xl">Welcome back</h1>
       <form
-        className="flex flex-column flex-gap-30"
+        className="flex flex-col gap-6"
         action="/api/auth/login"
         method="POST"
       >
-        <input
+        <FormInput
           name="email"
           type="email"
           id="email"
           placeholder="Email"
-          required
+          required={true}
         />
-        <input
+        <FormInput
           name="password"
           type="password"
           id="passwd"
-          required
           placeholder="Password"
+          required={true}
         />
         <button className="btn theme-btn">Log in</button>
         <p className="auth-choice">or</p>

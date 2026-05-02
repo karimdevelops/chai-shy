@@ -21,14 +21,16 @@
 }
 
 :root {
-  --main-bg-color: #0c0b08;
-  --secondary-bg-color: #191919;
-  --secondary-book-bg-color: #0c0c0c;
-  --secondary-color: #dcca87;
-  --secondary-color-lighter: rgba(220, 202, 135, 0.1);
-  --border-color: #26231c;
-  --uplift-color: #000000;
+  --app-foreground: #f5f5f5;
+  --app-background: #0c0b08;
+  --app-elevated: #0c0c0c;
+  --app-primary: #dcca87;
+  --app-lighter: rgba(220, 202, 135, 0.1);
 
+  --app-secondary: #26231c;
+  --app-uplift: #000000;
+  --secondary-lighter: rgba(220, 202, 135, 0.1);
+  --app-border: #26231c;
   --main-text-color: #f5f5f5;
   --info-text-color: #a4a3a3;
 
@@ -66,24 +68,20 @@
 }
 
 @theme {
-  --color-app-foreground: #f5f5f5;
-  --color-app-background: #0c0b08;
-  --color-app-elevated: #0c0c0c;
-  --color-app-primary: #dcca87;
-  --color-app-lighter: rgba(220, 202, 135, 0.1);
+  --color-app-foreground: var(--app-foreground);
+  --color-app-background: var(--app-background);
+  --color-app-elevated: var(--app-elevated);
+  --color-app-primary: var(--app-primary);
+  --color-app-lighter: var(--app-lighter);
 
-  --color-app-secondary: #26231c;
-  --color-app-uplift: #000000;
+  --color-app-secondary: var(--app-secondary);
+  --color-app-uplift: var(--uplift);
 
   --color-app-info: var(--info-text-color);
   --font-playfair: "Playfair Display";
-
+  --font-inter: "Inter";
+  --font-montserrat: "Montserrat";
   --radius: 1rem;
-}
-
-body {
-  font-family: "Inter";
-  font-size: 1.15rem;
 }
 
 div {
@@ -175,18 +173,8 @@ div {
   transition: color 0.2s;
 }
 
-.link-nav {
-  font-family: "Montserrat", serif;
-  font-size: 1rem;
-}
-
 .link-active {
-  color: var(--secondary-color);
-}
-
-.logo {
-  font-family: "Playfair Display", serif, sans-serif;
-  font-size: 1.35rem;
+  color: var(--app-primary);
 }
 
 .btn,
@@ -238,7 +226,7 @@ div {
   height: 300px;
   width: 300px;
   z-index: -1;
-  background-color: var(--secondary-color);
+  background-color: var(--app-primary);
 }
 
 .hero::before {
@@ -274,17 +262,6 @@ div {
   max-width: max-content;
 }
 
-.link-credits {
-  font-size: 1rem;
-  color: var(--main-bg-color);
-  text-decoration: none;
-  writing-mode: vertical-rl;
-}
-
-.about-info {
-  max-width: 26rem;
-}
-
 .t-center {
   text-align: center;
 }
@@ -309,7 +286,7 @@ div {
   }
 
   html {
-    @apply font-sans;
+    @apply font-inter;
   }
 }
 
