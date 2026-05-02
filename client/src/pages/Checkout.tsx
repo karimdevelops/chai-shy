@@ -71,10 +71,10 @@ export default function Checkout() {
         className={`checkout grid grid-cols-1 gap-5 md:grid-cols-[2fr_1fr] ${orderConfirm ? "blur" : ""}`}
       >
         <div className="details flex-column flex-gap-50 flex">
-          <div className="flex-column flex-gap-20 flex">
+          <div className="flex flex-col gap-5">
             <h2>Address</h2>
             <form id="checkoutForm" action="/api/checkout">
-              <div className="flex gap-10">
+              <div className="flex flex-col gap-10 md:flex-row">
                 <FormInput
                   name="address"
                   id="address"
