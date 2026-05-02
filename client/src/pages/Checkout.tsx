@@ -68,7 +68,7 @@ export default function Checkout() {
   return (
     <>
       <div
-        className={`grid-2fr-1fr grid-gap-20 checkout grid ${orderConfirm ? "blur" : ""}`}
+        className={`checkout grid grid-cols-1 gap-5 md:grid-cols-[2fr_1fr] ${orderConfirm ? "blur" : ""}`}
       >
         <div className="details flex-column flex-gap-50 flex">
           <div className="flex-column flex-gap-20 flex">
