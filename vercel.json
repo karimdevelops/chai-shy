@@ -1,6 +1,5 @@
 {
     "version": 2,
-    "packageManager": "pnpm@10.33.0",
     "buildCommand": "cd client && pnpm install && pnpm run build",
     "outputDirectory": "client/dist",
     "rewrites": [
