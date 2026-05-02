@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import BorderImage from "../components/BorderImage";
 
 export const Route = createFileRoute("/about")({
   component: RouteComponent,
@@ -6,24 +7,12 @@ export const Route = createFileRoute("/about")({
 
 function RouteComponent() {
   return (
-    <div className="flex flex-center padding-2 flex-gap-50">
-      <div className="feature">
-        <div className="flex flex-column hero">
-          <figure className="flex">
-            <img width="auto" height="550px" src="./about.jpg" alt="Tea cups" />
-            <figcaption>
-              <a
-                className="link-credits"
-                href="https://unsplash.com/@ananthan8110"
-                target="_blank"
-              >
-                Credit
-              </a>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-      <div>
+    <div className="flex items-center justify-center gap-20 p-4 md:p-8">
+      <BorderImage
+        src="./about.jpg"
+        href="https://unsplash.com/@ananthan8110"
+      />
+      <div className="max-w-105">
         <p className="tagline">Our Story</p>
         <p className="info about-info">
           Started in 1985, Chai Shy was a small place started by an unemployed
