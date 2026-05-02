@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Router, Request, Response } from "express";
 import multer from "multer";
 import { addMenu } from "../db/queries.js";
 
@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 const router: Router = Router();
 
-router.post("/add", upload.single("img"), (req, res) => {
+router.post("/add", upload.single("img"), (req: Request, res: Response) => {
   const cat_id = req.body.menu_category;
   const name = req.body.name;
   const price = req.body.price;

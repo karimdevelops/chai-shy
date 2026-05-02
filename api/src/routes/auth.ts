@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Router, Request, Response, NextFunction } from "express";
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import { getUser, getUserById, createUser } from "../db/queries.js";
@@ -20,31 +20,34 @@ router.post(
   }),
 );
 
-router.post("/logout", (req, res, next) => {
+router.post("/logout", (req: Request, res: Response, next: NextFunction) => {
   req.logout((err) => {
     if (err) return next(err);
     res.redirect("/");
   });
 });
 
-router.post("/signup", async (req, res, next) => {
-  try {
-    const firstName = req.body.firstName;
-    const lastName = req.body.lastName;
-    const email = req.body.email;
-    const password = req.body.password;
-    const user = await createUser(firstName, lastName, email, password);
+router.post(
+  "/signup",
+  async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const firstName = req.body.firstName;
+      const lastName = req.body.lastName;
+      const email = req.body.email;
+      const password = req.body.password;
+      const user = await createUser(firstName, lastName, email, password);
 
-    if (user) {
-      req.login(user, (err) => {
-        if (!err) console.error(err);
-        return res.redirect("/");
-      });
+      if (user) {
+        req.login(user, (err) => {
+          if (!err) console.error(err);
+          return res.redirect("/");
+        });
+      }
+    } catch (err) {
+      console.error(`Sign up error: ${err}`);
     }
-  } catch (err) {
-    console.error(`Sign up error: ${err}`);
-  }
-});
+  },
+);
 
 passport.use(
   new LocalStrategy(
