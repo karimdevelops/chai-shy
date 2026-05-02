@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <div className="flex items-center pb-5 md:pb-1">
       <nav>
-        <ul className="font-montserrat bg-app-secondary py-3 md:py-4 px-8 text-base justify-between items-center md:justify-center gap-5 flex max-w-fit rounded-xl z-2 shadow-[0_5px_5px_var(--uplift-color)]">
+        <ul className="font-montserrat bg-app-secondary z-2 flex max-w-fit items-center justify-between gap-5 rounded-xl px-8 py-3 text-base shadow-[0_5px_5px_var(--uplift-color)] md:justify-center md:py-4">
           <li>
             <Link
               to="/"
@@ -52,7 +52,7 @@ export default function Navbar() {
       </nav>
       <nav className="marginl-auto hidden md:block">
         {user == "empty" ? (
-          <ul className="font-montserrat bg-app-secondary py-3 md:py-4 px-8 text-base justify-between items-center md:justify-center gap-5 flex max-w-fit rounded-xl">
+          <ul className="font-montserrat bg-app-secondary flex max-w-fit items-center justify-between gap-5 rounded-xl px-8 py-3 text-base md:justify-center md:py-4">
             <li>
               <Link
                 to="/login"
@@ -108,7 +108,7 @@ export default function Navbar() {
       </nav>
       <nav className="ml-auto md:hidden">
         <DropdownMenu>
-          <DropdownMenuTrigger className="active:rotate-90 duration-300">
+          <DropdownMenuTrigger className="duration-300 active:rotate-90">
             <img src={menuSvg} className="h-10" />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
@@ -180,10 +180,21 @@ export default function Navbar() {
                       Support
                     </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <form action="/api/auth/logout" method="post">
-                      Logout
-                    </form>
+                  <form
+                    id="logoutForm"
+                    action="/api/auth/logout"
+                    method="post"
+                  ></form>
+                  <DropdownMenuItem
+                    variant="destructive"
+                    onSelect={() => {
+                      const logoutForm = document.getElementById(
+                        "logoutForm",
+                      ) as HTMLFormElement;
+                      logoutForm.submit();
+                    }}
+                  >
+                    Logout
                   </DropdownMenuItem>
                 </div>
               )}
