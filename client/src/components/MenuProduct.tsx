@@ -54,8 +54,7 @@ export default function MenuProduct({ product }: Props) {
           <img
             src={`/api/uploads/${product.name.toLowerCase().replaceAll(" ", "")}.avif`}
             alt=""
-            height={175}
-            width={"auto"}
+            className="h-44 w-auto"
           />
           <p className="product-price">${product.price}</p>
         </div>

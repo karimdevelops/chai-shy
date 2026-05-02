@@ -8,7 +8,7 @@ export default function MenuBar() {
   return (
     <div className="menubar">
       <nav className="navbar navbar-menu">
-        <ul className="flex flex-column flex-gap-20">
+        <ul className="grid grid-cols-3 gap-5 md:grid-cols-1">
           {menuCat.length != 0
             ? menuCat.map((cat) => (
                 <li key={cat["id"]} className="nav-li">
