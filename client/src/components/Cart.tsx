@@ -83,26 +83,25 @@ export default function Cart() {
             <img src="/icons/close.svg" alt="close" />
           </div>
         </div>
-        <div className="cart-items">
+        <div className="cart-items p-2">
           {cart
             ? cart.map((item) => (
                 <div
-                  className="cart-item flex-items-center flex-gap-5 flex"
+                  className="cart-item flex items-center gap-2"
                   key={item.product_id}
                 >
                   <img
                     src={`/api/uploads/${item.name.toLowerCase().replaceAll(" ", "")}.avif`}
                     alt=""
-                    height={65}
-                    width={"auto"}
+                    className="h-18 w-auto"
                   />
                   <div>
                     <h4>{item.name}</h4>
                     <p>${item.price}</p>
                   </div>
-                  <div className="marginl-auto">
-                    <div className="flex-column flex-sp-between flex">
-                      <div className="marginl-auto">
+                  <div className="ml-auto">
+                    <div className="flex flex-col justify-between">
+                      <div className="ml-auto flex gap-2">
                         <img
                           src="/icons/plus.svg"
                           alt="Increment"

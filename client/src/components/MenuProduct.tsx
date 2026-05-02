@@ -3,6 +3,7 @@ import UserContext from "../contexts/UserContext";
 import { useNavigate } from "@tanstack/react-router";
 import CartContext from "../contexts/CartContext";
 import { type Product } from "../hooks/useMenu";
+import Button from "./ThemeButton";
 
 interface Props {
   product: Product;
@@ -42,14 +43,14 @@ export default function MenuProduct({ product }: Props) {
     <div
       className={
         isFlip
-          ? "flip flex flex-column flex-center flex-gap-5 flip-container"
-          : "flex flex-column flex-center flex-gap-5 flip-container"
+          ? "flip flip-container flex flex-col items-center justify-center gap-2"
+          : "flip-container flex flex-col items-center justify-center gap-2"
       }
       key={product.id}
       onClick={() => (isFlip ? setIsFlip(false) : setIsFlip(true))}
     >
       <div className="card flip-card">
-        <div className="flex flex-column flex-center front">
+        <div className="flex-column flex-center front flex">
           <img
             src={`/api/uploads/${product.name.toLowerCase().replaceAll(" ", "")}.avif`}
             alt=""
@@ -58,16 +59,14 @@ export default function MenuProduct({ product }: Props) {
           />
           <p className="product-price">${product.price}</p>
         </div>
-        <div className="flex flex-column flex-center flex-gap-20 back">
+        <div className="flex-column flex-center flex-gap-20 back flex">
           <p className="info product-info">{product.description}</p>
-          <button
-            className="btn-add-cart"
+          <Button
+            text="Add to Cart"
             onClick={(e) => {
               addToCart(e, product);
             }}
-          >
-            Add to Cart
-          </button>
+          ></Button>
         </div>
       </div>
       <p className="product-name">{product.name}</p>
