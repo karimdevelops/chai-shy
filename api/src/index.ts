@@ -14,7 +14,7 @@ import cartRouter from "./routes/cart.js";
 import orderRouter from "./routes/order.js";
 import pool from "./db/pool.js";
 
-const app: Express = express();
+const app = express();
 const PgSession = connectPgSimple(session);
 const PORT = process.env.PORT;
 const __dirname = import.meta.dirname;
