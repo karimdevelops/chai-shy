@@ -206,39 +206,6 @@ div {
   text-align: center;
 }
 
-.main {
-  min-height: 70vh;
-  padding: 2rem;
-}
-
-.intro {
-  max-width: 36rem;
-}
-
-.hero {
-  position: relative;
-}
-
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  height: 300px;
-  width: 300px;
-  z-index: -1;
-  background-color: var(--app-primary);
-}
-
-.hero::before {
-  left: -20px;
-  bottom: -20px;
-}
-
-.hero::after {
-  right: 0px;
-  top: -20px;
-}
-
 .info {
   font-size: 1.15rem;
   color: var(--info-text-color);

@@ -25,14 +25,14 @@ export default function Home() {
             Explore Menu
           </Link>
         </div>
-        <div className="hero hidden md:flex md:flex-col">
+        <div className="after:bg-app-primary before:bg-app-primary relative hidden before:absolute before:inset-24 before:-bottom-5 before:-left-5 before:-z-1 before:content-[''] after:absolute after:inset-24 after:-top-5 after:-right-5 after:-z-1 after:content-[''] md:flex md:flex-col">
           <figure className="flex">
             <img
-              className="max-h-125 w-auto"
+              className="max-h-115 w-auto"
               src="./hero.avif"
               alt="Tea cups"
             />
-            <figcaption>
+            <figcaption className="absolute bottom-0 -left-5">
               <a
                 className="text-app-background [writing-mode:vertical-rl]"
                 href="https://unsplash.com/@ananthan8110"
