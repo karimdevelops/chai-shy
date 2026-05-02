@@ -13,14 +13,17 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 const router: Router = Router();
 
-router.post("/add", upload.single("img"), (req: Request, res: Response) => {
-  const cat_id = req.body.menu_category;
-  const name = req.body.name;
-  const price = req.body.price;
-  const desc = req.body.desc;
-  addMenu(cat_id, name, price, desc);
-  console.log("admin post /add");
-  res.redirect("/admin");
-});
+router.post(
+  "/add",
+  upload.single("img"),
+  async (req: Request, res: Response) => {
+    const cat_id = req.body.menu_category;
+    const name = req.body.name;
+    const price = req.body.price;
+    const desc = req.body.desc;
+    await addMenu(cat_id, name, price, desc);
+    res.redirect("/admin");
+  },
+);
 
 export default router;

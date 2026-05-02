@@ -12,7 +12,7 @@ import Button from "../components/ThemeButton";
 export default function Checkout() {
   const { cart, setCart } = useContext(CartContext)!;
   const [shipping, setShipping] = useState(0);
-  const [activeId, setActiveId] = useState(0);
+  const [activeId, setActiveId] = useState(1);
   const user = useContext(UserContext);
   const [orderConfirm, setOrderConfirm] = useState(false);
   const [cartSubTotal, setCartSubTotal] = useState(0);
@@ -46,7 +46,9 @@ export default function Checkout() {
   }, [orderId]);
 
   async function getAddOrderId() {
-    if (user == "empty") return;
+    if (user == "empty" || cart.length == 0) return;
+
+    setOrderConfirm(true);
     const res = await fetch("/api/order/add", {
       method: "POST",
       headers: {
@@ -71,8 +73,8 @@ export default function Checkout() {
         <div className="details flex-column flex-gap-50 flex">
           <div className="flex-column flex-gap-20 flex">
             <h2>Address</h2>
-            <form action="/api/checkout">
-              <div className="flex-gap-50 flex">
+            <form id="checkoutForm" action="/api/checkout">
+              <div className="flex gap-10">
                 <FormInput
                   name="address"
                   id="address"
@@ -157,7 +159,6 @@ export default function Checkout() {
             text="Place Order"
             onClick={() => {
               checkout();
-              setOrderConfirm(true);
             }}
           />
         </div>
