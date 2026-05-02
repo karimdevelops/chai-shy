@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import FormInput from "../components/FormInput";
 import "../styles/Auth.css";
+import Button from "../components/ThemeButton";
 
 export default function Login() {
   return (
@@ -25,9 +26,7 @@ export default function Login() {
           placeholder="Password"
           required={true}
         />
-        <button className="bg-app-primary text-app-background rounded-full p-2 font-bold">
-          Log in
-        </button>
+        <Button text="Login" />
         <p className="auth-choice">or</p>
         <button className="text-app-primary border-app-primary flex justify-center gap-2 rounded-full border px-5 py-2">
           <img src="/google.svg" alt="google" />

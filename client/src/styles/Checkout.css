@@ -1,7 +1,7 @@
 .details,
 .summary {
     border-radius: 20px;
-    box-shadow: 0 5px 5px var(--uplift-color);
+    box-shadow: 0 5px 5px var(--app-uplift);
     padding: 1rem;
 }
 
@@ -10,12 +10,12 @@
 }
 
 .summary {
-    background-color: var(--secondary-bg-color);
+    background-color: var(--app-secondary);
 }
 
 .checkout-product {
     padding: 0.5rem;
-    border-top: 1px dotted var(--main-text-color);
+    border-top: 1px dotted var(--app-foreground);
 }
 
 .checkout-products {
@@ -29,7 +29,7 @@
 
 .method li {
     padding: 1rem;
-    border: 1px solid var(--secondary-bg-color);
+    border: 1px solid var(--app-secondary);
     transition: all 0.5s;
 }
 
@@ -44,18 +44,18 @@
 }
 
 .method li.active {
-    background-color: var(--secondary-color-lighter);
-    border: 1px solid var(--secondary-color);
+    background-color: var(--app-lighter);
+    border: 1px solid var(--app-primary);
 }
 
 .confirm {
     position: fixed;
     top: 20%;
     left: 35%;
-    background-color: var(--secondary-bg-color);
+    background-color: var(--app-secondary);
     padding: 2rem;
     border-radius: 20px;
-    border: 2px solid var(--secondary-color);
+    border: 2px solid var(--app-primary);
     z-index: 10;
 
 }

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import FormInput from "../components/FormInput";
 import "../styles/Auth.css";
+import Button from "../components/ThemeButton";
 
 export default function Signup() {
   return (
@@ -54,9 +55,7 @@ export default function Signup() {
             required={true}
           />
         </div>
-        <button className="bg-app-primary text-app-background rounded-full p-2 font-bold">
-          Signup
-        </button>
+        <Button text="Signup" />
         <p className="auth-choice">or</p>
         <button className="text-app-primary border-app-primary flex justify-center gap-2 self-center rounded-full border px-5 py-2">
           <img src="/google.svg" alt="google" />

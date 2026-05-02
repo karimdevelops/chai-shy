@@ -6,6 +6,8 @@ import { getCartSubTotal } from "../utils/calc";
 
 import "../styles/Checkout.css";
 import UserContext from "../contexts/UserContext";
+import FormInput from "../components/FormInput";
+import Button from "../components/ThemeButton";
 
 export default function Checkout() {
   const { cart, setCart } = useContext(CartContext)!;
@@ -64,23 +66,35 @@ export default function Checkout() {
   return (
     <>
       <div
-        className={`grid grid-2fr-1fr grid-gap-20 checkout ${orderConfirm ? "blur" : ""}`}
+        className={`grid-2fr-1fr grid-gap-20 checkout grid ${orderConfirm ? "blur" : ""}`}
       >
-        <div className="details flex flex-column flex-gap-50">
-          <div className="flex flex-column flex-gap-20">
+        <div className="details flex-column flex-gap-50 flex">
+          <div className="flex-column flex-gap-20 flex">
             <h2>Address</h2>
             <form action="/api/checkout">
-              <div className="flex flex-gap-50">
-                <input type="text" placeholder="Address" />
-                <input type="text" placeholder="City" />
+              <div className="flex-gap-50 flex">
+                <FormInput
+                  name="address"
+                  id="address"
+                  type="text"
+                  placeholder="Address"
+                  required={true}
+                />
+                <FormInput
+                  name="city"
+                  id="city"
+                  type="text"
+                  placeholder="City"
+                  required={true}
+                />
               </div>
             </form>
           </div>
-          <div className="flex flex-column flex-gap-20">
+          <div className="flex-column flex-gap-20 flex">
             <h2>Shipping Method</h2>
             <ul className="method">
               <li
-                className={`flex flex-sp-between ${activeId == 1 ? "active" : ""}`}
+                className={`flex-sp-between flex ${activeId == 1 ? "active" : ""}`}
                 onClick={() => {
                   setShipping(0);
                   setActiveId(1);
@@ -90,7 +104,7 @@ export default function Checkout() {
                 <p>$0.00</p>
               </li>
               <li
-                className={`flex flex-sp-between ${activeId == 2 ? "active" : ""}`}
+                className={`flex-sp-between flex ${activeId == 2 ? "active" : ""}`}
                 onClick={() => {
                   setShipping(4.5);
                   setActiveId(2);
@@ -100,7 +114,7 @@ export default function Checkout() {
                 <p>$4.50</p>
               </li>
               <li
-                className={`flex flex-sp-between ${activeId == 3 ? "active" : ""}`}
+                className={`flex-sp-between flex ${activeId == 3 ? "active" : ""}`}
                 onClick={() => {
                   setShipping(22);
                   setActiveId(3);
@@ -111,14 +125,14 @@ export default function Checkout() {
               </li>
             </ul>
           </div>
-          <div className="flex flex-column flex-gap-20">
+          <div className="flex-column flex-gap-20 flex">
             <h2>Payment Method</h2>
             <ul className="method">
               <li className="active">Cash on delivery</li>
             </ul>
           </div>
         </div>
-        <div className="summary flex flex-column flex-gap-20">
+        <div className="summary flex flex-col gap-5">
           <h2 className="center-text cart-heading">Order Summary</h2>
           <div className="checkout-products">
             {cart != null
@@ -127,27 +141,25 @@ export default function Checkout() {
                 ))
               : null}
           </div>
-          <div className="flex flex-sp-between">
+          <div className="flex-sp-between flex">
             <p>Cart Subtotal:</p>
             <p>${cartSubTotal}</p>
           </div>
-          <div className="flex flex-sp-between">
+          <div className="flex-sp-between flex">
             <p>Shipping:</p>
             <p>${shipping.toFixed(2)}</p>
           </div>
-          <div className="flex flex-sp-between">
+          <div className="flex-sp-between flex">
             <h4>Order Total: </h4>
             <h4>${(Number(cartSubTotal) + Number(shipping)).toFixed(2)}</h4>
           </div>
-          <button
-            className="theme-btn btn"
+          <Button
+            text="Place Order"
             onClick={() => {
               checkout();
               setOrderConfirm(true);
             }}
-          >
-            Place Order
-          </button>
+          />
         </div>
       </div>
       {orderConfirm && orderId ? <OrderConfirm id={orderId} /> : null}
