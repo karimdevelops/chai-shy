@@ -22,7 +22,7 @@ function RootComponent() {
   return (
     <UserContext value={user}>
       <CartContext value={{ cart, setCart }}>
-        <div className="main">
+        <div className="p-4 md:p-8">
           {location.pathname !== "/admin" ? <Navbar /> : null}
           <Cart />
           <Outlet />
