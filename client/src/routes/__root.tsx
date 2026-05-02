@@ -5,6 +5,7 @@ import UserContext from "../contexts/UserContext";
 import Cart from "../components/Cart";
 import CartContext, { type CartItem } from "../contexts/CartContext";
 import { useState } from "react";
+import { DialogRewrite } from "../components/DialogRewrite";
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -24,6 +25,7 @@ function RootComponent() {
       <CartContext value={{ cart, setCart }}>
         <div className="p-4 md:p-8">
           {location.pathname !== "/admin" ? <Navbar /> : null}
+          <DialogRewrite/>
           <Cart />
           <Outlet />
         </div>
