@@ -13,7 +13,7 @@ function RouteComponent() {
         href="https://unsplash.com/@ananthan8110"
       />
       <div className="max-w-105">
-        <p className="tagline">Our Story</p>
+        <h4 className="font-playfair text-xl">Our Story</h4>
         <p className="info about-info">
           Started in 1985, Chai Shy was a small place started by an unemployed
           father of two. Poverty and inflation at the time forced him to take a
