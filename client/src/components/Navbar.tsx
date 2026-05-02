@@ -15,7 +15,6 @@ import {
 
 export default function Navbar() {
   const user = useContext(UserContext);
-  const [dropdown, setDropdown] = useState(false);
 
   return (
     <div className="flex items-center pb-5 md:pb-1">
@@ -73,37 +72,64 @@ export default function Navbar() {
             </li>
           </ul>
         ) : (
-          <ul className="navbar dropdown">
-            <img
-              src="/icons/gear.svg"
-              alt="settings"
-              onClick={() =>
-                dropdown ? setDropdown(false) : setDropdown(true)
-              }
-            />
-            <li
-              className={`dropdown-menu flex-column flex-gap-20 flex ${dropdown ? "active-dropdown" : ""}`}
-            >
-              <Link className="link-default flex-gap-5 flex" to="/profile">
-                <img src="/icons/profile.svg" alt="profile" />
-                Profile
-              </Link>
-              <Link className="link-default flex-gap-5 flex" to="/orders">
-                <img src="/icons/history2.svg" alt="orders history" />
-                Orders
-              </Link>
-              <Link className="link-default flex-gap-5 flex" to="/support">
-                <img src="/icons/support2.svg" alt="profile" />
-                Support
-              </Link>
-              <form action="/api/auth/logout" method="post">
-                <button className="btn-default flex-gap-5 flex">
-                  <img src="/icons/logout.svg" alt="profile" />
-                  Logout
-                </button>
-              </form>
-            </li>
-          </ul>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <img src="/icons/gear.svg" alt="settings" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuGroup>
+                <DropdownMenuLabel>Navigate</DropdownMenuLabel>
+                <DropdownMenuItem>
+                  <Link className="flex gap-2" to="/profile">
+                    <img
+                      src="/icons/profile.svg"
+                      className="h-5"
+                      alt="profile"
+                    />
+                    <span> Profile</span>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link className="flex gap-2" to="/orders">
+                    <img
+                      src="/icons/history2.svg"
+                      className="h-5"
+                      alt="orders history"
+                    />
+                    Orders
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link className="flex gap-2" to="/support">
+                    <img
+                      src="/icons/support2.svg"
+                      className="h-5"
+                      alt="profile"
+                    />
+                    Support
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+              <DropdownMenuSeparator />
+              <form
+                id="logoutForm"
+                action="/api/auth/logout"
+                method="post"
+              ></form>
+              <DropdownMenuItem
+                variant="destructive"
+                onSelect={() => {
+                  const logoutForm = document.getElementById(
+                    "logoutForm",
+                  ) as HTMLFormElement;
+                  logoutForm.submit();
+                }}
+              >
+                <img src="/icons/logout.svg" alt="profile" />
+                Logout
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         )}
       </nav>
       <nav className="ml-auto md:hidden">
