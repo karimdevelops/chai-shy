@@ -15,7 +15,7 @@ export default function Menu() {
   }, [routerState.location.pathname, setMenu]);
 
   return (
-    <div className="grid grid-cols-1 place-items-center content-center gap-15 px-0 py-8 md:grid-cols-[auto_1fr] md:place-items-start">
+    <div className="grid grid-cols-1 place-items-center gap-15 px-0 py-8 md:grid-cols-[auto_1fr] md:place-items-stretch md:items-start">
       <MenuBar />
       <div className="cards">
         {menu != null
